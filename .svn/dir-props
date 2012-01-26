@@ -1,10 +1,11 @@
 K 10
 svn:ignore
-V 42
+V 50
 \tmp\*
 \nbproject\*
 \public\*
 *.lock
 .git
+.bundle
 
 END

@@ -109,6 +109,9 @@ qqaa
 
 159
 
+vendor
+dir
+
 README
 file
 
@@ -142,9 +145,6 @@ qqaa
 
 
 9208
-
-vendor
-dir
 
 Gemfile.lock
 file
@@ -183,6 +183,12 @@ abotana
 script
 dir
 
+config
+dir
+
+doc
+dir
+
 .gitignore
 file
 
@@ -216,12 +222,6 @@ qqaa
 
 
 49
-
-doc
-dir
-
-config
-dir
 
 lib
 dir
