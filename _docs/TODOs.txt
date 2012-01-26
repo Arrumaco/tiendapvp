@@ -1,0 +1,15 @@
+TODO: 127.0.0.1/admin/clientes no pide login!!!!  ***LISTO***
+TODO: Quitar crear nuevo usuario a login de usuarios...  ***LISTO***
+TODO: Quitar User.anonymous/compra anónima  ***LISTO***
+TODO: Obligar login de users al inicio  ***LISTO***
+TODO: Edit pedidos->revisar resend correo...
+TODO: Parece que los check boxes de user (user, admin, cliente, vendor) no están funcinando
+TODO: Portal cliente: filtrado por cliente de users y pedidos ***Users Listo***
+TODO: Portal Proveedeores: filtrado por proveedor productos y pedidos ***LISTO prod, pedidos es absurdo***
+TODO: Mantenimiento de Users no lleva checkboxes de roles si no se es admin!!!
+TODO: Nuevo Usuarios con Cliente solo debe permitir funciones user/cliente
+TODO: Manejo de correos en checkout ***Listo v1***
+TODO: El registro del depósito debe pedir login y verificar el usuario/pedido/pago
+TODO: La actualización del depósito debe verificar usuario/pedido/pago
+
+

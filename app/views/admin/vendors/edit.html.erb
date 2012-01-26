@@ -1,0 +1,14 @@
+<div data-hook="admin_vendor_edit_form_header">
+  <%= render 'shared/error_messages', :target => @vendor %>
+  <h1><%= t(:editing_vendor) %></h1>
+</div>
+
+<div data-hook="admin_vendor_edit_form">
+<%= form_for [:admin, @vendor] do |f|   %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+  <div data-hook="admin_vendor_edit_form_button">
+    <%= render :partial => 'admin/shared/edit_resource_links' %>
+  </div>
+<% end %>
+</div>
+

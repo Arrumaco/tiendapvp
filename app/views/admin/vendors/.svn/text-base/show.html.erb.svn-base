@@ -1,0 +1,15 @@
+<h1><%= t(:vendor_account) %></h1>
+
+<table>
+  <tr data-hook="nombre">
+    <th><%= t(:nombre) %></th>
+    <td>
+      <%= @vendor.nombre %>
+    </td>
+  </tr>
+</table>
+
+<p>
+  <%= link_to_edit @vendor, :class => 'edit_vendor' %> <%= t(:or) %>
+  <%= link_to t(:back), collection_url %>
+</p>

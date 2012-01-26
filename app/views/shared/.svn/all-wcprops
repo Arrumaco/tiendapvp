@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/52/app/views/shared
+END
+_product_new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/36/app/views/shared/_product_new.html.erb
+END
+_user_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/52/app/views/shared/_user_form.html.erb
+END
+_product_edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/36/app/views/shared/_product_edit.html.erb
+END

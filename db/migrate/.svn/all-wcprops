@@ -1,0 +1,659 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/54/db/migrate
+END
+20111012194351_add_default_to_tax_categories.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194351_add_default_to_tax_categories.rb
+END
+20111012194360_shipping_method_id_for_orders.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194360_shipping_method_id_for_orders.rb
+END
+20111012194322_creditcard_last_four_digits.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194322_creditcard_last_four_digits.rb
+END
+20111012194402_create_promotion_actions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194402_create_promotion_actions.rb
+END
+20111012194306_create_indexes_for_inventory_units.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194306_create_indexes_for_inventory_units.rb
+END
+20111012194389_rename_columns_for_devise.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194389_rename_columns_for_devise.rb
+END
+20111012194374_prevent_nil_payment_total.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194374_prevent_nil_payment_total.rb
+END
+20111012194317_checkout_state_machine.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194317_checkout_state_machine.rb
+END
+20111012194316_add_some_indexes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194316_add_some_indexes.rb
+END
+20111012194354_rename_preferences_field.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194354_rename_preferences_field.rb
+END
+20111012194348_add_description_to_taxons.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194348_add_description_to_taxons.rb
+END
+20111012194332_add_test_mode_to_billing_integration.rb
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194332_add_test_mode_to_billing_integration.rb
+END
+20111110163331_add_vendor_to_product.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/53/db/migrate/20111110163331_add_vendor_to_product.rb
+END
+20111012194344_fix_existing_coupon_credits.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194344_fix_existing_coupon_credits.rb
+END
+20111012194338_sti_for_transactions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194338_sti_for_transactions.rb
+END
+20111012194379_remove_number_and_cvv_from_credicard.rb
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194379_remove_number_and_cvv_from_credicard.rb
+END
+20111012194397_create_promotion_rules_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194397_create_promotion_rules_users.rb
+END
+20111012194394_rename_coupons_to_promotions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194394_rename_coupons_to_promotions.rb
+END
+20111012194370_migrate_transactions_to_payment_state.rb
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194370_migrate_transactions_to_payment_state.rb
+END
+20111012194392_tokens_for_legacy_orders.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194392_tokens_for_legacy_orders.rb
+END
+20111012194368_move_special_instructions_to_orders.rb
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194368_move_special_instructions_to_orders.rb
+END
+20111012194336_change_payments_payment_method_to_belongs_to.rb
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194336_change_payments_payment_method_to_belongs_to.rb
+END
+20111012194393_add_api_key_to_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194393_add_api_key_to_users.rb
+END
+20111012194318_state_for_shipments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194318_state_for_shipments.rb
+END
+20111012194323_populate_legacy_shipment_state.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194323_populate_legacy_shipment_state.rb
+END
+20111012194396_match_policy_for_promotions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194396_match_policy_for_promotions.rb
+END
+20111012194333_create_products_product_groups.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194333_create_products_product_groups.rb
+END
+20111012194380_drop_anonymous_field_for_user.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194380_drop_anonymous_field_for_user.rb
+END
+20111215223846_add_deposito_to_payments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/41/db/migrate/20111215223846_add_deposito_to_payments.rb
+END
+20111012194362_refactor_adjustments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194362_refactor_adjustments.rb
+END
+20111015041448_create_clientes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/14/db/migrate/20111015041448_create_clientes.rb
+END
+20111012194319_make_state_events_polymorphic.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194319_make_state_events_polymorphic.rb
+END
+20111012194353_rename_payment_method_display.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194353_rename_payment_method_display.rb
+END
+20111012194395_create_promotion_rules.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194395_create_promotion_rules.rb
+END
+20111012194355_add_guest_flag.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194355_add_guest_flag.rb
+END
+20111012194366_create_mail_methods.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194366_create_mail_methods.rb
+END
+20111012194320_ship_address_id_for_checkouts.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194320_ship_address_id_for_checkouts.rb
+END
+20111012194331_original_creditcard_txn_id_for_creditcard_txns.rb
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194331_original_creditcard_txn_id_for_creditcard_txns.rb
+END
+20111012194308_change_taxons_to_nested_set.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194308_change_taxons_to_nested_set.rb
+END
+20111012194386_remove_trailing_slashes_in_taxon_permalinks.rb
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194386_remove_trailing_slashes_in_taxon_permalinks.rb
+END
+20111012194369_create_log_entries.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194369_create_log_entries.rb
+END
+20111012194342_fix_by_popularity.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194342_fix_by_popularity.rb
+END
+20111012194310_product_groups_and_scopes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194310_product_groups_and_scopes.rb
+END
+20111012194387_create_activators.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194387_create_activators.rb
+END
+20111012194359_payment_total_for_orders.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194359_payment_total_for_orders.rb
+END
+20111012194328_add_return_authorization_to_inventory_units.rb
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194328_add_return_authorization_to_inventory_units.rb
+END
+20111012194403_create_promotion_action_line_items.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194403_create_promotion_action_line_items.rb
+END
+20111012194313_change_preference_value_type.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194313_change_preference_value_type.rb
+END
+20111012194378_cleanup_legacy_tables.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194378_cleanup_legacy_tables.rb
+END
+20111012194391_create_tokenized_permissions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194391_create_tokenized_permissions.rb
+END
+20111012194365_email_for_orders.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194365_email_for_orders.rb
+END
+20111012194346_add_addresses_checkouts_indexes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194346_add_addresses_checkouts_indexes.rb
+END
+20111012194384_add_next_state_to_state_events.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194384_add_next_state_to_state_events.rb
+END
+20111012194367_rename_frozen_to_locked.rb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194367_rename_frozen_to_locked.rb
+END
+20111012194305_spree_zero_nine_zero.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194305_spree_zero_nine_zero.rb
+END
+20111012194349_index_for_shipments_number.rb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194349_index_for_shipments_number.rb
+END
+20111012194337_assign_creditcard_txns_to_payment.rb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194337_assign_creditcard_txns_to_payment.rb
+END
+20111012194363_response_code_and_avs_response_for_payments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194363_response_code_and_avs_response_for_payments.rb
+END
+20111012194376_generate_anonymous_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194376_generate_anonymous_users.rb
+END
+20111012194383_add_position_to_variants.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194383_add_position_to_variants.rb
+END
+20111012194371_delete_in_progress_orders.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194371_delete_in_progress_orders.rb
+END
+20111012194341_add_adjustments_index.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194341_add_adjustments_index.rb
+END
+20120115175537_add_cantidad_despachada_to_line_items.rb
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/54/db/migrate/20120115175537_add_cantidad_despachada_to_line_items.rb
+END
+20111012194372_migrate_checkout_to_orders.rb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194372_migrate_checkout_to_orders.rb
+END
+20111023204428_create_vendors.rb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/14/db/migrate/20111023204428_create_vendors.rb
+END
+20111130183758_add_cliente_to_order.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/31/db/migrate/20111130183758_add_cliente_to_order.rb
+END
+20111012194364_change_guest_flag_to_anonymous.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194364_change_guest_flag_to_anonymous.rb
+END
+20111012194357_payments_state_and_assigned_to_order_only.rb
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194357_payments_state_and_assigned_to_order_only.rb
+END
+20111012194356_drop_order_token.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194356_drop_order_token.rb
+END
+20111012194400_migrate_adjustments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194400_migrate_adjustments.rb
+END
+20111012194307_add_count_on_hand_to_variants_and_products.rb
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194307_add_count_on_hand_to_variants_and_products.rb
+END
+20111012220019_add_cliente_to_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012220019_add_cliente_to_users.rb
+END
+20111012194329_create_trackers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194329_create_trackers.rb
+END
+20111012194327_create_return_authorizations.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194327_create_return_authorizations.rb
+END
+20111012194312_add_openid_field_to_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194312_add_openid_field_to_users.rb
+END
+20111012194315_charge_refactoring.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194315_charge_refactoring.rb
+END
+20111012194361_add_shipment_and_payment_state.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194361_add_shipment_and_payment_state.rb
+END
+20111203160105_add_vendor_to_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/35/db/migrate/20111203160105_add_vendor_to_users.rb
+END
+20111012194330_creditcard_id_for_creditcard_txns.rb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194330_creditcard_id_for_creditcard_txns.rb
+END
+20111012194343_add_alt_text_to_images.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194343_add_alt_text_to_images.rb
+END
+20111012194334_create_payment_methods.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194334_create_payment_methods.rb
+END
+20111012194377_update_order_state.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194377_update_order_state.rb
+END
+20111012194382_fix_problematic_index_names.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194382_fix_problematic_index_names.rb
+END
+20111203182503_add_user_to_vendors.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/35/db/migrate/20111203182503_add_user_to_vendors.rb
+END
+20111012194335_polymorphic_payments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194335_polymorphic_payments.rb
+END
+20111012194314_create_billing_integrations.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194314_create_billing_integrations.rb
+END
+20111012194398_name_for_promotions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194398_name_for_promotions.rb
+END
+20111012194350_add_index_on_users_persistence_token.rb
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194350_add_index_on_users_persistence_token.rb
+END
+20111012194309_move_to_configurable_gateways.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194309_move_to_configurable_gateways.rb
+END
+20111012194339_drop_billing_integrations.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194339_drop_billing_integrations.rb
+END
+20111012194385_add_position_to_option_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194385_add_position_to_option_types.rb
+END
+20111012194345_add_display_to_payment_methods.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194345_add_display_to_payment_methods.rb
+END
+20111012194324_add_cost_price.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194324_add_cost_price.rb
+END
+20111012194375_prevent_nil_email.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194375_prevent_nil_email.rb
+END
+20111012194390_convert_user_remember_field.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194390_convert_user_remember_field.rb
+END
+20120114191512_add_image_to_option_values.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/49/db/migrate/20120114191512_add_image_to_option_values.rb
+END
+20111012194347_add_icon_to_taxons.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194347_add_icon_to_taxons.rb
+END
+20111012194352_add_display_to_shipping_methods.rb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194352_add_display_to_shipping_methods.rb
+END
+20111012194399_update_calculable_type_for_promotions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194399_update_calculable_type_for_promotions.rb
+END
+20111012194381_renamed_rma_cancelled_state.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194381_renamed_rma_cancelled_state.rb
+END
+20111012194321_shipping_method_id_for_checkouts.rb
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194321_shipping_method_id_for_checkouts.rb
+END
+20111012194325_shipment_id_for_inventory_units.rb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194325_shipment_id_for_inventory_units.rb
+END
+20111012194311_add_open_id_authentication_tables.rb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194311_add_open_id_authentication_tables.rb
+END
+20111012194358_create_address_keys_for_order.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194358_create_address_keys_for_order.rb
+END
+20111012194401_promotion_changes_to_subclass_of_activator.rb
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194401_promotion_changes_to_subclass_of_activator.rb
+END
+20111012194326_cim_fields_for_creditcards.rb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194326_cim_fields_for_creditcards.rb
+END
+20111012194373_remove_shipped_state.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194373_remove_shipped_state.rb
+END
+20111012194388_eligible_for_adjustments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194388_eligible_for_adjustments.rb
+END
+20111012194340_deleted_at_for_payment_methods.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/db/migrate/20111012194340_deleted_at_for_payment_methods.rb
+END

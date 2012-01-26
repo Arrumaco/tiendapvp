@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/41/app/controllers/cliente
+END
+shipments_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/18/app/controllers/cliente/shipments_controller.rb
+END
+orders_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/31/app/controllers/cliente/orders_controller.rb
+END
+payments_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/18/app/controllers/cliente/payments_controller.rb
+END
+users_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/36/app/controllers/cliente/users_controller.rb
+END
+products_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/15/app/controllers/cliente/products_controller.rb
+END
+overview_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/13/app/controllers/cliente/overview_controller.rb
+END

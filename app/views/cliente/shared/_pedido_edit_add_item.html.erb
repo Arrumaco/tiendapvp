@@ -1,0 +1,5 @@
+    <div style="float: left; width: 15%; padding-top: 17px;" >
+      <%= link_to text_for_button_link(t(:add), :icon => 'add'),
+            "/#{session[:rol_usuario]}/orders/#{@order.number}/line_items",
+            {:id => 'add_line_item_to_order', :class => 'button', 'data-update' => 'order-form-wrapper'} %>
+    </div>

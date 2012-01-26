@@ -1,0 +1,3 @@
+<%= tab :overview, :route => :cliente %>
+<%= tab :orders, :payments, :creditcard_payments, :shipments, :creditcards, :return_authorizations %>
+<%= tab :users %>

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/48/app/models
+END
+vendor.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/35/app/models/vendor.rb
+END
+ability.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/44/app/models/ability.rb
+END
+order_decorator.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/48/app/models/order_decorator.rb
+END
+payment.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/43/app/models/payment.rb
+END
+user_decorator.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/35/app/models/user_decorator.rb
+END
+product_decorator.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/30/app/models/product_decorator.rb
+END
+cliente.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/32/app/models/cliente.rb
+END
+.gitkeep
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/app/models/.gitkeep
+END

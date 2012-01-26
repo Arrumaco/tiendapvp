@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/54/app/helpers
+END
+confirmacion_despachos_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/54/app/helpers/confirmacion_despachos_helper.rb
+END
+application_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/app/helpers/application_helper.rb
+END
+clientes_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/2/app/helpers/clientes_helper.rb
+END
+base_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/50/app/helpers/base_helper.rb
+END
+deposito_bancos_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/41/app/helpers/deposito_bancos_helper.rb
+END

@@ -1,0 +1,814 @@
+DROP TABLE IF EXISTS "activators";
+CREATE TABLE "activators" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar(255), "expires_at" datetime, "created_at" datetime, "updated_at" datetime, "starts_at" datetime, "name" varchar(255), "event_name" varchar(255), "type" varchar(255));
+DROP TABLE IF EXISTS "addresses";
+CREATE TABLE "addresses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "firstname" varchar(255), "lastname" varchar(255), "address1" varchar(255), "address2" varchar(255), "city" varchar(255), "state_id" integer, "zipcode" varchar(255), "country_id" integer, "phone" varchar(255), "created_at" datetime, "updated_at" datetime, "state_name" varchar(255), "alternative_phone" varchar(255));
+INSERT INTO "addresses" VALUES(1,'Felix','Ramirez','Urb.','C','Caracas',1,'1050',1,'+58','2011-12-09 01:41:09.750000','2011-12-09 01:41:09.750000',NULL,NULL);
+INSERT INTO "addresses" VALUES(2,'Felix','Ramirez','Urb.','C','Caracas',1,'1050',1,'+58','2011-12-09 01:41:09.750000','2011-12-09 01:41:09.750000',NULL,NULL);
+INSERT INTO "addresses" VALUES(3,'Felix','Ramirez','Urb.','C','Caracas',1,'1050',1,'+58','2011-12-09 01:53:52.062500','2011-12-09 01:53:52.062500',NULL,NULL);
+INSERT INTO "addresses" VALUES(4,'Felix','Ramirez','Urb.','C','Caracas',1,'1050',1,'+58','2011-12-09 01:53:52.078125','2011-12-09 01:53:52.078125',NULL,NULL);
+INSERT INTO "addresses" VALUES(5,'aaaa desde el movil','xxxx','gggg','','cccch',1,'8888888',1,'7777','2011-12-10 14:53:11.437500','2011-12-10 14:53:11.437500',NULL,NULL);
+INSERT INTO "addresses" VALUES(6,'aaaa desde el movil','xxxx','gggg','','cccch',1,'8888888',1,'7777','2011-12-10 14:53:11.453125','2011-12-10 14:53:11.453125',NULL,NULL);
+INSERT INTO "addresses" VALUES(7,'Felix','Ramirez','Urb.','C','Caracas',1,'1050',1,'+58','2011-12-27 13:20:18.618196','2011-12-27 13:20:18.618196',NULL,NULL);
+INSERT INTO "addresses" VALUES(8,'Felix','Ramirez','Urb.','C','Caracas',1,'1050',1,'+58','2011-12-27 13:20:18.633822','2011-12-27 13:20:18.633822',NULL,NULL);
+INSERT INTO "addresses" VALUES(9,'Felix','Ramirez','Urb.','C','Caracas',1,'1050',1,'+58','2011-12-27 14:02:27.681520','2011-12-27 14:02:27.681520',NULL,NULL);
+INSERT INTO "addresses" VALUES(10,'Felix','Ramirez','Urb.','C','Caracas',1,'1050',1,'+58','2011-12-27 14:02:27.681520','2011-12-27 14:02:27.681520',NULL,NULL);
+INSERT INTO "addresses" VALUES(11,'Felix','Ramirez','Urb.','C','Caracas',1,'1050',1,'+58','2011-12-27 15:09:49.758418','2011-12-27 15:09:49.758418',NULL,NULL);
+INSERT INTO "addresses" VALUES(12,'Felix','Ramirez','Urb.','C','Caracas',1,'1050',1,'+58','2011-12-27 15:09:49.758418','2011-12-27 15:09:49.758418',NULL,NULL);
+INSERT INTO "addresses" VALUES(13,'Felix','Ramirez','Urb.','C','Caracas',1,'1050',1,'+58','2011-12-27 15:43:14.406131','2011-12-27 15:43:14.406131',NULL,NULL);
+INSERT INTO "addresses" VALUES(14,'Felix','Ramirez','Urb.','C','Caracas',1,'1050',1,'+58','2011-12-27 15:43:14.421756','2011-12-27 15:43:14.421756',NULL,NULL);
+INSERT INTO "addresses" VALUES(15,'Felix','Ramirez','Urb.','C','Caracas',1,'1050',1,'+58','2011-12-27 16:10:43.094035','2011-12-27 16:10:43.094035',NULL,NULL);
+INSERT INTO "addresses" VALUES(16,'Felix','Ramirez','Urb.','C','Caracas',1,'1050',1,'+58','2011-12-27 16:10:43.109660','2011-12-27 16:10:43.109660',NULL,NULL);
+DROP TABLE IF EXISTS "adjustments";
+CREATE TABLE "adjustments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "order_id" integer, "amount" decimal, "label" varchar(255), "created_at" datetime, "updated_at" datetime, "source_id" integer, "source_type" varchar(255), "mandatory" boolean, "locked" boolean, "originator_id" integer, "originator_type" varchar(255), "eligible" boolean DEFAULT 't');
+INSERT INTO "adjustments" VALUES(1,10,0,'Envío','2011-12-09 01:41:33.281250','2011-12-09 01:41:33.281250',1,'Shipment','t',NULL,1,'ShippingMethod','t');
+INSERT INTO "adjustments" VALUES(3,11,121.2,'IVA 12.0%','2011-12-09 02:14:41.609375','2011-12-09 02:14:41.609375',11,'Order','t',NULL,1,'TaxRate','t');
+INSERT INTO "adjustments" VALUES(4,11,0,'Envío','2011-12-09 02:17:29.156250','2011-12-09 02:17:29.156250',2,'Shipment','t',NULL,1,'ShippingMethod','t');
+INSERT INTO "adjustments" VALUES(5,13,216.32,'IVA 12.0%','2011-12-10 14:53:13.250000','2011-12-10 14:53:13.250000',13,'Order','t',NULL,1,'TaxRate','t');
+INSERT INTO "adjustments" VALUES(6,13,0,'Envío','2011-12-10 14:53:50.718750','2011-12-10 14:53:50.718750',3,'Shipment','t',NULL,1,'ShippingMethod','t');
+INSERT INTO "adjustments" VALUES(7,14,33,'IVA 12.0%','2011-12-27 13:20:20.133850','2011-12-27 13:20:20.133850',14,'Order','t',NULL,1,'TaxRate','t');
+INSERT INTO "adjustments" VALUES(8,14,0,'Envío','2011-12-27 13:21:02.931547','2011-12-27 13:21:02.931547',4,'Shipment','t',NULL,1,'ShippingMethod','t');
+INSERT INTO "adjustments" VALUES(9,15,351.3,'IVA 12.0%','2011-12-27 14:02:28.384658','2011-12-27 14:02:28.384658',15,'Order','t',NULL,1,'TaxRate','t');
+INSERT INTO "adjustments" VALUES(10,15,0,'Envío','2011-12-27 14:03:08.588555','2011-12-27 14:03:08.588555',5,'Shipment','t',NULL,1,'ShippingMethod','t');
+INSERT INTO "adjustments" VALUES(11,16,6444.9,'IVA 12.0%','2011-12-27 15:09:50.570928','2011-12-27 15:09:50.570928',16,'Order','t',NULL,1,'TaxRate','t');
+INSERT INTO "adjustments" VALUES(12,16,0,'Envío','2011-12-27 15:10:46.743736','2011-12-27 15:10:46.743736',6,'Shipment','t',NULL,1,'ShippingMethod','t');
+INSERT INTO "adjustments" VALUES(13,17,1738.8,'IVA 12.0%','2011-12-27 15:43:15.140520','2011-12-27 15:43:15.140520',17,'Order','t',NULL,1,'TaxRate','t');
+INSERT INTO "adjustments" VALUES(14,17,0,'Envío','2011-12-27 15:44:16.563574','2011-12-27 15:44:16.563574',7,'Shipment','t',NULL,1,'ShippingMethod','t');
+INSERT INTO "adjustments" VALUES(15,18,0,'IVA 12.0%','2011-12-27 16:10:43.437791','2011-12-27 16:10:43.437791',18,'Order','t',NULL,1,'TaxRate','t');
+INSERT INTO "adjustments" VALUES(16,18,0,'Envío','2011-12-27 16:11:18.235335','2011-12-27 16:11:18.235335',8,'Shipment','t',NULL,1,'ShippingMethod','t');
+DROP TABLE IF EXISTS "assets";
+CREATE TABLE "assets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "viewable_id" integer, "viewable_type" varchar(50), "attachment_content_type" varchar(255), "attachment_file_name" varchar(255), "attachment_size" integer, "position" integer, "type" varchar(75), "attachment_updated_at" datetime, "attachment_width" integer, "attachment_height" integer, "alt" text);
+INSERT INTO "assets" VALUES(1,3,'Product','image/jpeg','EQL153MBHS.jpg',NULL,1,'Image','2011-12-02 13:42:32.609375',960,720,'Dispensador de Agua
+Electrolux
+');
+INSERT INTO "assets" VALUES(2,6,'Product','image/jpeg','EQL153MBHS.jpg',NULL,1,'Image','2011-12-02 13:51:54.234375',960,720,'Dispensador de Agua
+Con nevera
+Electrolux');
+INSERT INTO "assets" VALUES(3,8,'Product','image/jpeg','BDTRO420.jpg',NULL,1,'Image','2011-12-02 14:07:45.750000',960,720,'Horno Tostador
+Black&Decker
+BDTRO420');
+INSERT INTO "assets" VALUES(4,10,'Product','image/jpeg','BDTRO4051.jpg',NULL,1,'Image','2011-12-02 14:12:07.625000',960,720,'Horno Tostador
+Black&Decker
+BDTRO4051');
+INSERT INTO "assets" VALUES(6,12,'Product','image/jpeg','BDCTO650.jpg',NULL,1,'Image','2011-12-02 14:29:24.968750',960,720,'Horno Tostador
+Black&Decker
+BDCTO650');
+INSERT INTO "assets" VALUES(7,7,'Product',NULL,NULL,NULL,1,'Image',NULL,NULL,NULL,'Horno Tostador Digital
+Black&Decker
+BDFC151B');
+INSERT INTO "assets" VALUES(8,9,'Product',NULL,NULL,NULL,1,'Image',NULL,NULL,NULL,'HORNO TOSTADOR 
+ACERO INOX.   
+B&D
+BDTRO965');
+INSERT INTO "assets" VALUES(9,11,'Product',NULL,NULL,NULL,1,'Image',NULL,NULL,NULL,'Horno Tostador
+Black&Decker
+BDTRO500');
+INSERT INTO "assets" VALUES(10,13,'Product','image/jpeg','BDCTO6302-A.jpg',NULL,1,'Image','2011-12-02 15:50:39.546875',960,720,'Horno Tostador
+Black&Decker
+BDCTO6302');
+INSERT INTO "assets" VALUES(11,13,'Product','image/jpeg','BDCTO6302-B.jpg',NULL,2,'Image','2011-12-02 15:51:28.234375',960,720,'Horno Tostador
+Black&Decker
+BDCTO6302');
+INSERT INTO "assets" VALUES(12,15,'Product','image/jpeg','TU 01.jpg',NULL,1,'Image','2011-12-02 17:17:52.578125',960,720,'Ventilador Cuadrado
+Electrolux
+TU 01');
+INSERT INTO "assets" VALUES(13,17,'Product','image/jpeg','TU41.jpg',NULL,1,'Image','2011-12-02 21:19:23.828125',960,720,'Ventiladores Cuadrado
+Electrolux
+TU41');
+INSERT INTO "assets" VALUES(14,18,'Product','image/jpeg','VM22.jpg',NULL,1,'Image','2011-12-02 21:48:12.468750',960,720,'Ventilador de Mesa
+Electrolux
+VM22');
+INSERT INTO "assets" VALUES(15,20,'Product','image/jpeg','VP10.jpg',NULL,1,'Image','2011-12-02 22:24:55.562500',960,720,'Ventiladores Pedestal
+Electrolux
+VP10');
+INSERT INTO "assets" VALUES(16,21,'Product','image/jpeg','VTL01.jpg',NULL,1,'Image','2011-12-02 22:33:23.015625',960,720,'Ventiladores Torre
+Electrolux
+VTL01');
+INSERT INTO "assets" VALUES(17,19,'Product','image/jpeg','VM37.jpg',NULL,1,'Image','2011-12-03 01:18:44.671875',960,720,'Ventiladores Mesa
+Electrolux
+VM37');
+INSERT INTO "assets" VALUES(18,22,'Product','image/jpeg','TFV10.jpg',NULL,1,'Image','2011-12-03 01:39:10.953125',960,720,'Ventilador de Torre
+Electrolux
+TFV10');
+INSERT INTO "assets" VALUES(19,23,'Product',NULL,NULL,NULL,1,'Image',NULL,NULL,NULL,'Ventilador de Escritorio
+Electrolux
+DFV10');
+INSERT INTO "assets" VALUES(20,24,'Product','image/jpeg','DFV20.jpg',NULL,1,'Image','2011-12-03 02:08:58.078125',960,720,'Ventilador de Escritorio
+Electrolux
+DFV20');
+INSERT INTO "assets" VALUES(21,25,'Product',NULL,NULL,NULL,1,'Image',NULL,NULL,NULL,'Ventilador Cuadrado
+Electrolux
+BFV10
+');
+INSERT INTO "assets" VALUES(22,26,'Product',NULL,NULL,NULL,1,'Image',NULL,NULL,NULL,'Ventilador de Pedestal
+Electrolux
+SFV10');
+INSERT INTO "assets" VALUES(23,27,'Product','image/jpeg','EMDA17S3MJW.jpg',NULL,1,'Image','2011-12-03 04:34:47.359375',960,720,'Microondas
+Electrolux
+EMDA17S3MJ
+');
+INSERT INTO "assets" VALUES(24,28,'Product','image/jpeg','EMDA23G3MJW.jpg',NULL,1,'Image','2011-12-03 05:01:15.296875',960,720,'Microondas
+Electrolux
+EMDA23G3MJ
+');
+INSERT INTO "assets" VALUES(25,29,'Product','image/jpeg','LE24H037A.jpg',NULL,1,'Image','2011-12-03 05:36:36.843750',960,720,'Televisores LCD
+AOC
+LE24H037
+');
+INSERT INTO "assets" VALUES(26,29,'Product','image/jpeg','LE24H037B.jpg',NULL,2,'Image','2011-12-03 05:37:37.343750',960,720,'Televisores LCD
+AOC
+LE24H037
+');
+INSERT INTO "assets" VALUES(27,29,'Product','image/jpeg','LE24H037C.jpg',NULL,3,'Image','2011-12-03 05:38:24.140625',960,720,'Televisores LCD
+AOC
+LE24H037');
+INSERT INTO "assets" VALUES(28,30,'Product',NULL,NULL,NULL,1,'Image',NULL,NULL,NULL,'Televisor FULLHD
+AOC
+LC27H030');
+INSERT INTO "assets" VALUES(29,31,'Product','image/jpeg','E1621SW-A.jpg',NULL,1,'Image','2011-12-03 21:50:24.531250',960,720,'Monitor AOC: LED 15.6" LED ');
+INSERT INTO "assets" VALUES(30,31,'Product','image/jpeg','E1621SW-B.jpg',NULL,2,'Image','2011-12-03 21:52:09.453125',960,720,'Monitor AOC: LED 15.6" LED');
+INSERT INTO "assets" VALUES(31,31,'Product','image/jpeg','E1621SW-C.jpg',NULL,3,'Image','2011-12-03 21:53:48.671875',960,720,'Monitor AOC: LED 15.6" LED');
+INSERT INTO "assets" VALUES(32,33,'Product',NULL,NULL,NULL,1,'Image',NULL,NULL,NULL,'MICROONDAS 28 Lts. NUEVO
+Electrolux');
+INSERT INTO "assets" VALUES(33,34,'Product','image/jpeg','EMMN311D2SM.jpg',NULL,1,'Image','2011-12-04 03:43:17.000000',960,720,'MICROONDAS 31 Lts. ESPEJO  NUEVO
+Electrolux');
+INSERT INTO "assets" VALUES(34,36,'Product',NULL,NULL,NULL,1,'Image',NULL,NULL,NULL,'HORNO TOSTADOR 14 Lts.
+Electrolux');
+INSERT INTO "assets" VALUES(35,39,'Product',NULL,NULL,NULL,1,'Image',NULL,NULL,NULL,'MICROONDAS 17 Lts. ESPEJO NUEVO
+Electrolux');
+INSERT INTO "assets" VALUES(36,1,'Product',NULL,NULL,NULL,1,'Image',NULL,NULL,NULL,'Dispensador de Agua Electrolux');
+INSERT INTO "assets" VALUES(37,2,'Product',NULL,NULL,NULL,1,'Image',NULL,NULL,NULL,'Dispensador de Agua
+Electrolux');
+DROP TABLE IF EXISTS "calculators";
+CREATE TABLE "calculators" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "type" varchar(255), "calculable_id" integer NOT NULL, "calculable_type" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime);
+INSERT INTO "calculators" VALUES(2,'Calculator::PerItem',1,'ShippingMethod','2011-12-01 01:24:15.375000','2011-12-01 01:24:15.375000');
+INSERT INTO "calculators" VALUES(3,'Calculator::Vat',1,'TaxRate','2011-12-09 01:46:01.890625','2011-12-09 01:46:01.890625');
+DROP TABLE IF EXISTS "clientes";
+CREATE TABLE "clientes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "razon_social" varchar(255), "rif" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime);
+DROP TABLE IF EXISTS "configurations";
+CREATE TABLE "configurations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "type" varchar(50));
+INSERT INTO "configurations" VALUES(1,'Default configuration','2011-11-26 18:07:33.109375','2011-11-26 18:07:33.109375','AppConfiguration');
+INSERT INTO "configurations" VALUES(2,'Default spree_auth configuration','2011-12-01 01:19:12.062500','2011-12-01 01:19:12.062500','SpreeAuthConfiguration');
+DROP TABLE IF EXISTS "countries";
+CREATE TABLE "countries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "iso_name" varchar(255), "iso" varchar(255), "name" varchar(255), "iso3" varchar(255), "numcode" integer);
+INSERT INTO "countries" VALUES(1,'VENEZUELA','VE','Venezuela','VEN',862);
+DROP TABLE IF EXISTS "creditcards";
+CREATE TABLE "creditcards" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "month" varchar(255), "year" varchar(255), "cc_type" varchar(255), "last_digits" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "created_at" datetime, "updated_at" datetime, "start_month" varchar(255), "start_year" varchar(255), "issue_number" varchar(255), "address_id" integer, "gateway_customer_profile_id" varchar(255), "gateway_payment_profile_id" varchar(255));
+DROP TABLE IF EXISTS "gateways";
+CREATE TABLE "gateways" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "type" varchar(255), "name" varchar(255), "description" text, "active" boolean DEFAULT 't', "environment" varchar(255) DEFAULT 'development', "server" varchar(255) DEFAULT 'test', "test_mode" boolean DEFAULT 't', "created_at" datetime, "updated_at" datetime);
+DROP TABLE IF EXISTS "inventory_units";
+CREATE TABLE "inventory_units" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "variant_id" integer, "order_id" integer, "state" varchar(255), "lock_version" integer DEFAULT 0, "created_at" datetime, "updated_at" datetime, "shipment_id" integer, "return_authorization_id" integer);
+INSERT INTO "inventory_units" VALUES(1,35,10,'sold',0,'2011-12-09 01:41:56.328125','2011-12-09 01:41:56.328125',1,NULL);
+INSERT INTO "inventory_units" VALUES(2,8,11,'sold',0,'2011-12-09 02:18:05.500000','2011-12-09 02:18:05.500000',2,NULL);
+INSERT INTO "inventory_units" VALUES(3,8,11,'sold',0,'2011-12-09 02:18:05.500000','2011-12-09 02:18:05.500000',2,NULL);
+INSERT INTO "inventory_units" VALUES(4,6,13,'sold',0,'2011-12-10 14:54:30.281250','2011-12-10 14:54:30.281250',3,NULL);
+INSERT INTO "inventory_units" VALUES(5,18,14,'sold',0,'2011-12-27 13:21:35.119665','2011-12-27 13:21:35.119665',4,NULL);
+INSERT INTO "inventory_units" VALUES(6,35,15,'sold',0,'2011-12-27 14:30:25.729362','2011-12-27 14:30:25.729362',5,NULL);
+INSERT INTO "inventory_units" VALUES(7,28,16,'sold',0,'2011-12-27 15:12:34.198924','2011-12-27 15:12:34.198924',6,NULL);
+INSERT INTO "inventory_units" VALUES(8,28,16,'sold',0,'2011-12-27 15:12:34.198924','2011-12-27 15:12:34.198924',6,NULL);
+INSERT INTO "inventory_units" VALUES(9,28,16,'sold',0,'2011-12-27 15:12:34.214550','2011-12-27 15:12:34.214550',6,NULL);
+INSERT INTO "inventory_units" VALUES(10,28,16,'sold',0,'2011-12-27 15:12:34.214550','2011-12-27 15:12:34.214550',6,NULL);
+INSERT INTO "inventory_units" VALUES(11,28,16,'sold',0,'2011-12-27 15:12:34.214550','2011-12-27 15:12:34.214550',6,NULL);
+INSERT INTO "inventory_units" VALUES(12,28,16,'sold',0,'2011-12-27 15:12:34.214550','2011-12-27 15:12:34.214550',6,NULL);
+INSERT INTO "inventory_units" VALUES(13,28,16,'sold',0,'2011-12-27 15:12:34.214550','2011-12-27 15:12:34.214550',6,NULL);
+INSERT INTO "inventory_units" VALUES(14,28,16,'sold',0,'2011-12-27 15:12:34.230175','2011-12-27 15:12:34.230175',6,NULL);
+INSERT INTO "inventory_units" VALUES(15,28,16,'sold',0,'2011-12-27 15:12:34.230175','2011-12-27 15:12:34.230175',6,NULL);
+INSERT INTO "inventory_units" VALUES(16,28,16,'sold',0,'2011-12-27 15:12:34.230175','2011-12-27 15:12:34.230175',6,NULL);
+INSERT INTO "inventory_units" VALUES(17,28,16,'backordered',0,'2011-12-27 15:12:34.230175','2011-12-27 15:12:34.230175',6,NULL);
+INSERT INTO "inventory_units" VALUES(18,28,16,'backordered',0,'2011-12-27 15:12:34.230175','2011-12-27 15:12:34.230175',6,NULL);
+INSERT INTO "inventory_units" VALUES(19,28,16,'backordered',0,'2011-12-27 15:12:34.323927','2011-12-27 15:12:34.323927',6,NULL);
+INSERT INTO "inventory_units" VALUES(20,28,16,'backordered',0,'2011-12-27 15:12:34.402053','2011-12-27 15:12:34.402053',6,NULL);
+INSERT INTO "inventory_units" VALUES(21,28,16,'backordered',0,'2011-12-27 15:12:34.433304','2011-12-27 15:12:34.433304',6,NULL);
+INSERT INTO "inventory_units" VALUES(22,28,16,'backordered',0,'2011-12-27 15:12:34.558306','2011-12-27 15:12:34.558306',6,NULL);
+INSERT INTO "inventory_units" VALUES(23,28,16,'backordered',0,'2011-12-27 15:12:34.589557','2011-12-27 15:12:34.589557',6,NULL);
+INSERT INTO "inventory_units" VALUES(24,28,16,'backordered',0,'2011-12-27 15:12:34.620807','2011-12-27 15:12:34.620807',6,NULL);
+INSERT INTO "inventory_units" VALUES(25,28,16,'backordered',0,'2011-12-27 15:12:34.683309','2011-12-27 15:12:34.683309',6,NULL);
+INSERT INTO "inventory_units" VALUES(26,28,16,'backordered',0,'2011-12-27 15:12:34.745810','2011-12-27 15:12:34.745810',6,NULL);
+INSERT INTO "inventory_units" VALUES(27,28,16,'backordered',0,'2011-12-27 15:12:34.870812','2011-12-27 15:12:34.870812',6,NULL);
+INSERT INTO "inventory_units" VALUES(28,28,16,'backordered',0,'2011-12-27 15:12:34.870812','2011-12-27 15:12:34.870812',6,NULL);
+INSERT INTO "inventory_units" VALUES(29,28,16,'backordered',0,'2011-12-27 15:12:34.886438','2011-12-27 15:12:34.886438',6,NULL);
+INSERT INTO "inventory_units" VALUES(30,28,16,'backordered',0,'2011-12-27 15:12:35.558325','2011-12-27 15:12:35.558325',6,NULL);
+INSERT INTO "inventory_units" VALUES(31,28,16,'backordered',0,'2011-12-27 15:12:35.948958','2011-12-27 15:12:35.948958',6,NULL);
+INSERT INTO "inventory_units" VALUES(32,28,16,'backordered',0,'2011-12-27 15:12:35.948958','2011-12-27 15:12:35.948958',6,NULL);
+INSERT INTO "inventory_units" VALUES(33,28,16,'backordered',0,'2011-12-27 15:12:35.948958','2011-12-27 15:12:35.948958',6,NULL);
+INSERT INTO "inventory_units" VALUES(34,28,16,'backordered',0,'2011-12-27 15:12:35.948958','2011-12-27 15:12:35.948958',6,NULL);
+INSERT INTO "inventory_units" VALUES(35,28,16,'backordered',0,'2011-12-27 15:12:35.964583','2011-12-27 15:12:35.964583',6,NULL);
+INSERT INTO "inventory_units" VALUES(36,28,16,'backordered',0,'2011-12-27 15:12:35.964583','2011-12-27 15:12:35.964583',6,NULL);
+INSERT INTO "inventory_units" VALUES(37,11,17,'sold',0,'2011-12-27 15:45:27.924319','2011-12-27 15:45:27.924319',7,NULL);
+INSERT INTO "inventory_units" VALUES(38,11,17,'sold',0,'2011-12-27 15:45:27.924319','2011-12-27 15:45:27.924319',7,NULL);
+INSERT INTO "inventory_units" VALUES(39,11,17,'sold',0,'2011-12-27 15:45:27.924319','2011-12-27 15:45:27.924319',7,NULL);
+INSERT INTO "inventory_units" VALUES(40,11,17,'sold',0,'2011-12-27 15:45:27.924319','2011-12-27 15:45:27.924319',7,NULL);
+INSERT INTO "inventory_units" VALUES(41,11,17,'sold',0,'2011-12-27 15:45:27.939944','2011-12-27 15:45:27.939944',7,NULL);
+INSERT INTO "inventory_units" VALUES(42,11,17,'sold',0,'2011-12-27 15:45:27.939944','2011-12-27 15:45:27.939944',7,NULL);
+INSERT INTO "inventory_units" VALUES(43,11,17,'sold',0,'2011-12-27 15:45:27.939944','2011-12-27 15:45:27.939944',7,NULL);
+INSERT INTO "inventory_units" VALUES(44,11,17,'sold',0,'2011-12-27 15:45:27.939944','2011-12-27 15:45:27.939944',7,NULL);
+INSERT INTO "inventory_units" VALUES(45,11,17,'sold',0,'2011-12-27 15:45:27.939944','2011-12-27 15:45:27.939944',7,NULL);
+INSERT INTO "inventory_units" VALUES(46,11,17,'sold',0,'2011-12-27 15:45:27.939944','2011-12-27 15:45:27.939944',7,NULL);
+INSERT INTO "inventory_units" VALUES(47,11,17,'backordered',0,'2011-12-27 15:45:27.955570','2011-12-27 15:45:27.955570',7,NULL);
+INSERT INTO "inventory_units" VALUES(48,11,17,'backordered',0,'2011-12-27 15:45:27.955570','2011-12-27 15:45:27.955570',7,NULL);
+INSERT INTO "inventory_units" VALUES(49,11,17,'backordered',0,'2011-12-27 15:45:27.955570','2011-12-27 15:45:27.955570',7,NULL);
+INSERT INTO "inventory_units" VALUES(50,11,17,'backordered',0,'2011-12-27 15:45:27.955570','2011-12-27 15:45:27.955570',7,NULL);
+INSERT INTO "inventory_units" VALUES(51,11,17,'backordered',0,'2011-12-27 15:45:27.955570','2011-12-27 15:45:27.955570',7,NULL);
+DROP TABLE IF EXISTS "line_items";
+CREATE TABLE "line_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "order_id" integer, "variant_id" integer, "quantity" integer NOT NULL, "price" decimal(8,2) NOT NULL, "created_at" datetime, "updated_at" datetime);
+INSERT INTO "line_items" VALUES(1,2,1,2,1790,'2011-12-01 01:18:37.187500','2011-12-01 01:31:32.140625');
+INSERT INTO "line_items" VALUES(2,2,2,1,1648.73,'2011-12-01 02:38:30.531250','2011-12-01 02:38:30.531250');
+INSERT INTO "line_items" VALUES(3,4,19,1,423,'2011-12-03 01:50:26.031250','2011-12-03 01:50:26.031250');
+INSERT INTO "line_items" VALUES(4,4,28,1,1790.25,'2011-12-03 03:54:51.250000','2011-12-03 03:54:51.250000');
+INSERT INTO "line_items" VALUES(5,5,10,1,720,'2011-12-03 03:55:06.078125','2011-12-03 03:55:06.078125');
+INSERT INTO "line_items" VALUES(8,6,31,12,794.29,'2011-12-07 17:42:51.250000','2011-12-07 17:46:42.078125');
+INSERT INTO "line_items" VALUES(9,7,34,1,1077.34,'2011-12-08 15:43:20.671875','2011-12-08 15:43:20.671875');
+INSERT INTO "line_items" VALUES(10,8,3,1,1945.93,'2011-12-08 19:04:35.062500','2011-12-08 19:04:35.062500');
+INSERT INTO "line_items" VALUES(11,9,3,1,1945.93,'2011-12-08 19:22:14.421875','2011-12-08 19:22:14.421875');
+INSERT INTO "line_items" VALUES(12,10,35,1,2927.5,'2011-12-09 01:40:10.484375','2011-12-09 01:40:10.484375');
+INSERT INTO "line_items" VALUES(13,11,8,2,505,'2011-12-09 01:47:10.312500','2011-12-09 02:04:18.359375');
+INSERT INTO "line_items" VALUES(14,12,6,1,1802.64,'2011-12-10 02:19:23.828125','2011-12-10 02:19:23.828125');
+INSERT INTO "line_items" VALUES(15,13,6,1,1802.64,'2011-12-10 14:50:01.375000','2011-12-10 14:50:01.375000');
+INSERT INTO "line_items" VALUES(16,14,18,1,275,'2011-12-27 13:04:42.943982','2011-12-27 13:18:25.631652');
+INSERT INTO "line_items" VALUES(18,15,35,1,2927.5,'2011-12-27 14:01:01.305322','2011-12-27 14:01:01.305322');
+INSERT INTO "line_items" VALUES(20,16,28,30,1790.25,'2011-12-27 14:49:06.829012','2011-12-27 14:59:15.834845');
+INSERT INTO "line_items" VALUES(21,17,11,15,966,'2011-12-27 15:41:08.481838','2011-12-27 15:41:33.763573');
+DROP TABLE IF EXISTS "log_entries";
+CREATE TABLE "log_entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "source_id" integer, "source_type" varchar(255), "details" text, "created_at" datetime, "updated_at" datetime);
+DROP TABLE IF EXISTS "mail_methods";
+CREATE TABLE "mail_methods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "environment" varchar(255), "active" boolean DEFAULT 't', "created_at" datetime, "updated_at" datetime);
+INSERT INTO "mail_methods" VALUES(1,'development','t','2011-11-26 19:52:07.328125','2011-11-26 19:52:07.328125');
+DROP TABLE IF EXISTS "option_types";
+CREATE TABLE "option_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(100), "presentation" varchar(100), "created_at" datetime, "updated_at" datetime, "position" integer DEFAULT 0 NOT NULL);
+INSERT INTO "option_types" VALUES(1,'Color','Color','2011-12-03 03:03:51.640625','2011-12-03 03:03:51.640625',0);
+INSERT INTO "option_types" VALUES(2,'Capacidad','Capacidad','2011-12-03 04:07:31.875000','2011-12-03 04:07:31.875000',0);
+DROP TABLE IF EXISTS "option_types_prototypes";
+CREATE TABLE "option_types_prototypes" ("prototype_id" integer, "option_type_id" integer);
+INSERT INTO "option_types_prototypes" VALUES(4,1);
+INSERT INTO "option_types_prototypes" VALUES(4,2);
+DROP TABLE IF EXISTS "option_values";
+CREATE TABLE "option_values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "option_type_id" integer, "name" varchar(255), "position" integer, "presentation" varchar(255), "created_at" datetime, "updated_at" datetime);
+INSERT INTO "option_values" VALUES(1,1,'Blanco',1,'Blanco','2011-12-03 03:07:43.875000','2011-12-03 03:07:43.875000');
+INSERT INTO "option_values" VALUES(2,1,'Plateado',2,'Plateado','2011-12-03 03:08:03.328125','2011-12-03 03:08:03.328125');
+INSERT INTO "option_values" VALUES(3,1,'Espejo',3,'Espejo','2011-12-03 04:39:59.796875','2011-12-03 04:39:59.796875');
+INSERT INTO "option_values" VALUES(4,1,'Negro',4,'Negro','2011-12-04 04:32:19.828125','2011-12-04 04:32:19.828125');
+DROP TABLE IF EXISTS "option_values_variants";
+CREATE TABLE "option_values_variants" ("variant_id" integer, "option_value_id" integer);
+INSERT INTO "option_values_variants" VALUES(27,1);
+INSERT INTO "option_values_variants" VALUES(28,2);
+INSERT INTO "option_values_variants" VALUES(30,1);
+INSERT INTO "option_values_variants" VALUES(31,3);
+INSERT INTO "option_values_variants" VALUES(33,1);
+INSERT INTO "option_values_variants" VALUES(34,3);
+INSERT INTO "option_values_variants" VALUES(40,1);
+INSERT INTO "option_values_variants" VALUES(41,3);
+INSERT INTO "option_values_variants" VALUES(45,1);
+INSERT INTO "option_values_variants" VALUES(46,1);
+INSERT INTO "option_values_variants" VALUES(48,1);
+INSERT INTO "option_values_variants" VALUES(49,1);
+INSERT INTO "option_values_variants" VALUES(51,1);
+INSERT INTO "option_values_variants" VALUES(52,4);
+DROP TABLE IF EXISTS "orders";
+CREATE TABLE "orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "number" varchar(15), "item_total" decimal DEFAULT 0.0 NOT NULL, "total" decimal DEFAULT 0.0 NOT NULL, "created_at" datetime, "updated_at" datetime, "state" varchar(255), "adjustment_total" decimal DEFAULT 0.0 NOT NULL, "credit_total" decimal DEFAULT 0.0 NOT NULL, "completed_at" datetime, "bill_address_id" integer, "ship_address_id" integer, "payment_total" decimal(8,2) DEFAULT 0.0, "shipping_method_id" integer, "shipment_state" varchar(255), "payment_state" varchar(255), "email" varchar(255), "special_instructions" text, "cliente_id" integer);
+INSERT INTO "orders" VALUES(1,2,'R842316408',0,0,'2011-11-27 12:49:39.578125','2011-11-27 12:49:39.578125','cart',0,0,NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO "orders" VALUES(2,1,'R063638378',5228.73,5228.73,'2011-12-01 01:18:36.843750','2011-12-01 01:18:36.843750','cart',0,0,NULL,NULL,NULL,0,NULL,NULL,'balance_due','PVPTienda@gmail.com',NULL,NULL);
+INSERT INTO "orders" VALUES(3,3,'R275774672',0,0,'2011-12-01 22:18:25.015625','2011-12-01 22:18:25.015625','cart',0,0,NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO "orders" VALUES(4,1,'R223242028',2213.25,2213.25,'2011-12-03 01:50:24.671875','2011-12-03 01:50:24.671875','cart',0,0,NULL,NULL,NULL,0,NULL,NULL,'balance_due','PVPTienda@gmail.com',NULL,NULL);
+INSERT INTO "orders" VALUES(5,1,'R568127235',720,720,'2011-12-03 03:55:05.625000','2011-12-03 03:55:05.625000','cart',0,0,NULL,NULL,NULL,0,NULL,NULL,'balance_due','PVPTienda@gmail.com',NULL,NULL);
+INSERT INTO "orders" VALUES(6,1,'R671456725',9531.48,9531.48,'2011-12-07 16:00:06.046875','2011-12-07 16:00:06.046875','cart',0,0,NULL,NULL,NULL,0,NULL,NULL,'balance_due','PVPTienda@gmail.com',NULL,NULL);
+INSERT INTO "orders" VALUES(7,1,'R400282276',1077.34,1077.34,'2011-12-08 15:43:19.640625','2011-12-08 15:43:19.640625','cart',0,0,NULL,NULL,NULL,0,NULL,NULL,'balance_due','PVPTienda@gmail.com',NULL,NULL);
+INSERT INTO "orders" VALUES(8,1,'R578142146',1945.93,1945.93,'2011-12-08 19:04:34.546875','2011-12-08 19:04:34.546875','cart',0,0,NULL,NULL,NULL,0,NULL,NULL,'balance_due','PVPTienda@gmail.com',NULL,NULL);
+INSERT INTO "orders" VALUES(9,1,'R052425252',1945.93,1945.93,'2011-12-08 19:22:13.656250','2011-12-08 19:22:13.656250','cart',0,0,NULL,NULL,NULL,0,NULL,NULL,'balance_due','PVPTienda@gmail.com',NULL,NULL);
+INSERT INTO "orders" VALUES(10,1,'R524201205',2927.5,2927.5,'2011-12-09 01:40:09.906250','2011-12-09 01:41:56.281250','complete',0,0,'2011-12-09 01:41:56.281250',1,2,0,1,'pending','balance_due','PVPTienda@gmail.com',NULL,NULL);
+INSERT INTO "orders" VALUES(11,1,'R533208146',1010,1131.2,'2011-12-09 01:47:09.500000','2011-12-09 02:18:05.453125','complete',121.2,0,'2011-12-09 02:18:05.453125',3,4,0,1,'pending','balance_due','PVPTienda@gmail.com',NULL,NULL);
+INSERT INTO "orders" VALUES(12,1,'R862306770',1802.64,1802.64,'2011-12-10 02:19:22.953125','2011-12-10 02:19:22.953125','cart',0,0,NULL,NULL,NULL,0,NULL,NULL,'balance_due','PVPTienda@gmail.com',NULL,NULL);
+INSERT INTO "orders" VALUES(13,1,'R173542441',1802.64,2018.96,'2011-12-10 14:50:00.406250','2011-12-10 14:54:30.234375','complete',216.32,0,'2011-12-10 14:54:30.234375',5,6,0,1,'pending','balance_due','PVPTienda@gmail.com',NULL,NULL);
+INSERT INTO "orders" VALUES(14,1,'R675283300',275,308,'2011-12-27 13:04:41.506454','2011-12-27 13:21:35.072789','complete',33,0,'2011-12-27 13:21:35.072789',7,8,0,1,'pending','balance_due','PVPTienda@gmail.com',NULL,NULL);
+INSERT INTO "orders" VALUES(15,1,'R366675782',2927.5,3278.8,'2011-12-27 13:27:11.813629','2011-12-27 14:30:25.682487','complete',351.3,0,'2011-12-27 14:30:25.682487',9,10,0,1,'pending','balance_due','PVPTienda@gmail.com',NULL,NULL);
+INSERT INTO "orders" VALUES(16,1,'R475762780',53707.5,60152.4,'2011-12-27 14:48:03.280917','2011-12-27 15:12:34.089547','complete',6444.9,0,'2011-12-27 15:12:34.105173',11,12,0,1,'pending','balance_due','PVPTienda@gmail.com',NULL,NULL);
+INSERT INTO "orders" VALUES(17,1,'R880435277',14490,16228.8,'2011-12-27 15:41:07.966203','2011-12-27 15:45:27.877443','complete',1738.8,0,'2011-12-27 15:45:27.877443',13,14,0,1,'pending','balance_due','PVPTienda@gmail.com',NULL,NULL);
+INSERT INTO "orders" VALUES(18,1,'R560557861',0,0,'2011-12-27 15:57:20.078617','2011-12-27 16:11:17.797826','payment',0,0,NULL,15,16,0,1,'pending','balance_due','PVPTienda@gmail.com',NULL,NULL);
+DROP TABLE IF EXISTS "payment_methods";
+CREATE TABLE "payment_methods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "type" varchar(255), "name" varchar(255), "description" text, "active" boolean DEFAULT 't', "environment" varchar(255) DEFAULT 'development', "created_at" datetime, "updated_at" datetime, "deleted_at" datetime, "display_on" varchar(255));
+INSERT INTO "payment_methods" VALUES(1,'PaymentMethod::Check','Depósito','Depósito en efectivo','t','development','2011-11-26 19:56:29.109375','2011-11-26 19:56:29.109375',NULL,'');
+DROP TABLE IF EXISTS "payments";
+CREATE TABLE "payments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "order_id" integer, "created_at" datetime, "updated_at" datetime, "amount" decimal DEFAULT 0.0 NOT NULL, "source_id" integer, "source_type" varchar(255), "payment_method_id" integer, "state" varchar(255), "response_code" varchar(255), "avs_response" varchar(255), "deposito_numero" decimal(8,2), "deposito_fecha" date);
+INSERT INTO "payments" VALUES(1,10,'2011-12-09 01:41:53.843750','2011-12-09 01:41:53.843750',2927.5,NULL,NULL,1,'checkout',NULL,NULL,NULL,NULL);
+INSERT INTO "payments" VALUES(2,11,'2011-12-09 02:18:03.406250','2011-12-09 02:18:03.406250',1131.2,NULL,NULL,1,'checkout',NULL,NULL,NULL,NULL);
+INSERT INTO "payments" VALUES(3,13,'2011-12-10 14:54:28.406250','2011-12-10 14:54:28.406250',2018.96,NULL,NULL,1,'checkout',NULL,NULL,NULL,NULL);
+INSERT INTO "payments" VALUES(4,14,'2011-12-27 13:21:33.197753','2011-12-27 13:21:33.197753',308,NULL,NULL,1,'checkout',NULL,NULL,NULL,NULL);
+INSERT INTO "payments" VALUES(5,15,'2011-12-27 14:30:22.119918','2011-12-27 14:30:22.119918',3278.8,NULL,NULL,1,'checkout',NULL,NULL,NULL,NULL);
+INSERT INTO "payments" VALUES(6,16,'2011-12-27 15:12:30.276974','2011-12-27 15:12:30.276974',60152.4,NULL,NULL,1,'checkout',NULL,NULL,NULL,NULL);
+INSERT INTO "payments" VALUES(7,17,'2011-12-27 15:45:27.205555','2011-12-27 15:45:27.205555',16228.8,NULL,NULL,1,'checkout',NULL,NULL,NULL,NULL);
+DROP TABLE IF EXISTS "preferences";
+CREATE TABLE "preferences" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(100) NOT NULL, "owner_id" integer(30) NOT NULL, "owner_type" varchar(50) NOT NULL, "group_id" integer, "group_type" varchar(50), "value" text(255), "created_at" datetime, "updated_at" datetime);
+INSERT INTO "preferences" VALUES(1,'default_locale',1,'Configuration',NULL,NULL,'es-VE','2011-11-26 18:07:33.953125','2011-11-26 18:07:33.953125');
+INSERT INTO "preferences" VALUES(2,'site_name',1,'Configuration',NULL,NULL,'Tienda PVP - Demo','2011-11-26 19:51:04.609375','2011-11-26 19:51:04.609375');
+INSERT INTO "preferences" VALUES(3,'default_seo_title',1,'Configuration',NULL,NULL,'','2011-11-26 19:51:04.687500','2011-11-26 19:51:04.687500');
+INSERT INTO "preferences" VALUES(4,'default_meta_keywords',1,'Configuration',NULL,NULL,'spree, demo','2011-11-26 19:51:04.703125','2011-11-26 19:51:04.703125');
+INSERT INTO "preferences" VALUES(5,'default_meta_description',1,'Configuration',NULL,NULL,'Spree demo site','2011-11-26 19:51:04.703125','2011-11-26 19:51:04.703125');
+INSERT INTO "preferences" VALUES(6,'site_url',1,'Configuration',NULL,NULL,'demo.spreecommerce.com','2011-11-26 19:51:04.703125','2011-11-26 19:51:04.703125');
+INSERT INTO "preferences" VALUES(7,'allow_ssl_in_production',1,'Configuration',NULL,NULL,'1','2011-11-26 19:51:04.703125','2011-11-26 19:51:04.703125');
+INSERT INTO "preferences" VALUES(8,'allow_ssl_in_development_and_test',1,'Configuration',NULL,NULL,'0','2011-11-26 19:51:04.718750','2011-11-26 19:51:04.718750');
+INSERT INTO "preferences" VALUES(9,'enable_mail_delivery',1,'MailMethod',NULL,NULL,'1','2011-11-26 19:52:07.609375','2011-11-26 19:52:07.609375');
+INSERT INTO "preferences" VALUES(10,'mails_from',1,'MailMethod',NULL,NULL,'PVPTienda@gmail.com','2011-11-26 19:52:07.625000','2011-11-26 19:52:39.218750');
+INSERT INTO "preferences" VALUES(11,'mail_bcc',1,'MailMethod',NULL,NULL,'PVPTienda@gmail.com','2011-11-26 19:52:07.625000','2011-11-26 19:52:07.625000');
+INSERT INTO "preferences" VALUES(12,'intercept_email',1,'MailMethod',NULL,NULL,'','2011-11-26 19:52:07.625000','2011-11-26 19:52:07.625000');
+INSERT INTO "preferences" VALUES(13,'mail_domain',1,'MailMethod',NULL,NULL,'localhost','2011-11-26 19:52:07.640625','2011-11-26 19:52:07.640625');
+INSERT INTO "preferences" VALUES(14,'mail_host',1,'MailMethod',NULL,NULL,'localhost','2011-11-26 19:52:07.640625','2011-11-26 19:52:07.640625');
+INSERT INTO "preferences" VALUES(15,'mail_port',1,'MailMethod',NULL,NULL,'25','2011-11-26 19:52:07.640625','2011-11-26 19:52:07.640625');
+INSERT INTO "preferences" VALUES(16,'secure_connection_type',1,'MailMethod',NULL,NULL,'None','2011-11-26 19:52:07.656250','2011-11-26 19:52:07.656250');
+INSERT INTO "preferences" VALUES(17,'mail_auth_type',1,'MailMethod',NULL,NULL,'none','2011-11-26 19:52:07.656250','2011-11-26 19:52:07.656250');
+INSERT INTO "preferences" VALUES(18,'smtp_username',1,'MailMethod',NULL,NULL,'','2011-11-26 19:52:07.656250','2011-11-26 19:52:07.656250');
+INSERT INTO "preferences" VALUES(19,'smtp_password',1,'MailMethod',NULL,NULL,'','2011-11-26 19:52:07.656250','2011-11-26 19:52:07.656250');
+INSERT INTO "preferences" VALUES(20,'show_zero_stock_products',1,'Configuration',NULL,NULL,'1','2011-11-30 20:01:42.218750','2011-11-30 20:01:42.218750');
+INSERT INTO "preferences" VALUES(21,'allow_backorders',1,'Configuration',NULL,NULL,'1','2011-11-30 20:01:42.359375','2011-11-30 20:02:31.718750');
+INSERT INTO "preferences" VALUES(22,'amount',2,'Calculator',NULL,NULL,'0.0','2011-12-01 01:24:41.593750','2011-12-01 01:24:41.593750');
+INSERT INTO "preferences" VALUES(23,'allow_guest_checkout',1,'Configuration',NULL,NULL,'f','2011-12-01 21:35:05.359375','2012-01-13 05:16:59.921875');
+INSERT INTO "preferences" VALUES(24,'cache_static_content',1,'Configuration',NULL,NULL,'f','2011-12-01 21:35:05.812500','2011-12-10 12:57:28.046875');
+INSERT INTO "preferences" VALUES(25,'default_country_id',1,'Configuration',NULL,NULL,'214','2011-12-01 21:35:05.953125','2012-01-13 05:17:00.328125');
+INSERT INTO "preferences" VALUES(26,'checkout_zone',1,'Configuration',NULL,NULL,'Venezuela','2011-12-01 21:35:06.109375','2011-12-03 19:51:24.187500');
+INSERT INTO "preferences" VALUES(27,'logo',1,'Configuration',NULL,NULL,'admin/LogoPVP3.png','2011-12-03 19:51:24.312500','2012-01-13 01:07:35.968750');
+INSERT INTO "preferences" VALUES(28,'stylesheets',1,'Configuration',NULL,NULL,'screen,spree_blue_theme','2011-12-03 19:51:24.453125','2011-12-03 19:51:24.453125');
+DROP TABLE IF EXISTS "product_groups";
+CREATE TABLE "product_groups" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "permalink" varchar(255), "order" varchar(255));
+INSERT INTO "product_groups" VALUES(1,'Electrodomesticos','electrodomesticos',NULL);
+DROP TABLE IF EXISTS "product_groups_products";
+CREATE TABLE "product_groups_products" ("product_id" integer, "product_group_id" integer);
+INSERT INTO "product_groups_products" VALUES(1,1);
+INSERT INTO "product_groups_products" VALUES(2,1);
+INSERT INTO "product_groups_products" VALUES(3,1);
+INSERT INTO "product_groups_products" VALUES(4,1);
+INSERT INTO "product_groups_products" VALUES(5,1);
+INSERT INTO "product_groups_products" VALUES(6,1);
+INSERT INTO "product_groups_products" VALUES(7,1);
+INSERT INTO "product_groups_products" VALUES(8,1);
+INSERT INTO "product_groups_products" VALUES(9,1);
+INSERT INTO "product_groups_products" VALUES(10,1);
+INSERT INTO "product_groups_products" VALUES(11,1);
+INSERT INTO "product_groups_products" VALUES(12,1);
+INSERT INTO "product_groups_products" VALUES(13,1);
+INSERT INTO "product_groups_products" VALUES(14,1);
+INSERT INTO "product_groups_products" VALUES(15,1);
+INSERT INTO "product_groups_products" VALUES(16,1);
+INSERT INTO "product_groups_products" VALUES(17,1);
+INSERT INTO "product_groups_products" VALUES(18,1);
+INSERT INTO "product_groups_products" VALUES(19,1);
+INSERT INTO "product_groups_products" VALUES(20,1);
+INSERT INTO "product_groups_products" VALUES(21,1);
+INSERT INTO "product_groups_products" VALUES(22,1);
+INSERT INTO "product_groups_products" VALUES(23,1);
+INSERT INTO "product_groups_products" VALUES(24,1);
+INSERT INTO "product_groups_products" VALUES(25,1);
+INSERT INTO "product_groups_products" VALUES(26,1);
+INSERT INTO "product_groups_products" VALUES(27,1);
+INSERT INTO "product_groups_products" VALUES(28,1);
+INSERT INTO "product_groups_products" VALUES(29,1);
+INSERT INTO "product_groups_products" VALUES(30,1);
+INSERT INTO "product_groups_products" VALUES(31,1);
+INSERT INTO "product_groups_products" VALUES(32,1);
+INSERT INTO "product_groups_products" VALUES(33,1);
+INSERT INTO "product_groups_products" VALUES(34,1);
+INSERT INTO "product_groups_products" VALUES(35,1);
+INSERT INTO "product_groups_products" VALUES(36,1);
+INSERT INTO "product_groups_products" VALUES(37,1);
+INSERT INTO "product_groups_products" VALUES(38,1);
+INSERT INTO "product_groups_products" VALUES(39,1);
+DROP TABLE IF EXISTS "product_option_types";
+CREATE TABLE "product_option_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "option_type_id" integer, "position" integer, "created_at" datetime, "updated_at" datetime);
+INSERT INTO "product_option_types" VALUES(1,1,1,1,'2011-12-03 03:06:12.718750','2011-12-03 03:06:12.718750');
+INSERT INTO "product_option_types" VALUES(2,27,1,1,'2011-12-03 04:27:29.718750','2011-12-03 04:27:29.718750');
+INSERT INTO "product_option_types" VALUES(3,27,2,2,'2011-12-03 04:27:29.718750','2011-12-03 04:27:29.718750');
+INSERT INTO "product_option_types" VALUES(4,28,1,1,'2011-12-03 04:56:08.734375','2011-12-03 04:56:08.734375');
+INSERT INTO "product_option_types" VALUES(5,28,2,2,'2011-12-03 04:56:08.734375','2011-12-03 04:56:08.734375');
+INSERT INTO "product_option_types" VALUES(6,32,1,1,'2011-12-03 22:25:09.968750','2011-12-03 22:25:09.968750');
+INSERT INTO "product_option_types" VALUES(7,32,2,2,'2011-12-03 22:25:09.968750','2011-12-03 22:25:09.968750');
+INSERT INTO "product_option_types" VALUES(8,33,1,1,'2011-12-03 22:38:09.906250','2011-12-03 22:38:09.906250');
+INSERT INTO "product_option_types" VALUES(9,33,2,2,'2011-12-03 22:38:09.906250','2011-12-03 22:38:09.906250');
+INSERT INTO "product_option_types" VALUES(10,34,1,1,'2011-12-04 03:39:48.578125','2011-12-04 03:39:48.578125');
+INSERT INTO "product_option_types" VALUES(11,34,2,2,'2011-12-04 03:39:48.578125','2011-12-04 03:39:48.578125');
+INSERT INTO "product_option_types" VALUES(12,36,1,1,'2011-12-04 04:21:14.234375','2011-12-04 04:21:14.234375');
+INSERT INTO "product_option_types" VALUES(13,37,1,1,'2011-12-04 04:42:45.515625','2011-12-04 04:42:45.515625');
+INSERT INTO "product_option_types" VALUES(14,39,1,1,'2011-12-07 15:43:13.484375','2011-12-07 15:43:13.484375');
+INSERT INTO "product_option_types" VALUES(15,39,2,2,'2011-12-07 15:43:13.484375','2011-12-07 15:43:13.484375');
+DROP TABLE IF EXISTS "product_properties";
+CREATE TABLE "product_properties" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "property_id" integer, "value" varchar(255), "created_at" datetime, "updated_at" datetime);
+INSERT INTO "product_properties" VALUES(1,3,3,NULL,'2011-12-01 02:47:16.531250','2011-12-01 02:47:16.531250');
+INSERT INTO "product_properties" VALUES(2,3,2,NULL,'2011-12-01 02:47:16.531250','2011-12-01 02:47:16.531250');
+INSERT INTO "product_properties" VALUES(3,5,3,NULL,'2011-12-01 02:55:52.750000','2011-12-01 02:55:52.750000');
+INSERT INTO "product_properties" VALUES(4,5,2,NULL,'2011-12-01 02:55:52.750000','2011-12-01 02:55:52.750000');
+INSERT INTO "product_properties" VALUES(5,6,3,NULL,'2011-12-01 02:56:04.406250','2011-12-01 02:56:04.406250');
+INSERT INTO "product_properties" VALUES(6,6,2,NULL,'2011-12-01 02:56:04.406250','2011-12-01 02:56:04.406250');
+INSERT INTO "product_properties" VALUES(7,7,3,NULL,'2011-12-01 03:08:35.140625','2011-12-01 03:08:35.140625');
+INSERT INTO "product_properties" VALUES(8,7,2,NULL,'2011-12-01 03:08:35.140625','2011-12-01 03:08:35.140625');
+INSERT INTO "product_properties" VALUES(9,8,3,NULL,'2011-12-01 03:14:58.687500','2011-12-01 03:14:58.687500');
+INSERT INTO "product_properties" VALUES(10,8,2,NULL,'2011-12-01 03:14:58.687500','2011-12-01 03:14:58.687500');
+INSERT INTO "product_properties" VALUES(11,9,3,NULL,'2011-12-01 03:26:28.031250','2011-12-01 03:26:28.031250');
+INSERT INTO "product_properties" VALUES(12,9,2,NULL,'2011-12-01 03:26:28.093750','2011-12-01 03:26:28.093750');
+INSERT INTO "product_properties" VALUES(13,10,3,NULL,'2011-12-01 03:38:44.187500','2011-12-01 03:38:44.187500');
+INSERT INTO "product_properties" VALUES(14,10,2,NULL,'2011-12-01 03:38:44.203125','2011-12-01 03:38:44.203125');
+INSERT INTO "product_properties" VALUES(17,12,3,'Acero Inoxidable','2011-12-02 14:20:30.625000','2011-12-02 15:11:53.937500');
+INSERT INTO "product_properties" VALUES(18,12,2,'B&D','2011-12-02 14:20:30.625000','2011-12-02 15:11:53.937500');
+INSERT INTO "product_properties" VALUES(19,13,3,'Acero Inoxidable','2011-12-02 15:34:21.468750','2011-12-02 15:52:31.390625');
+INSERT INTO "product_properties" VALUES(20,13,2,'B&D','2011-12-02 15:34:21.468750','2011-12-02 15:52:31.406250');
+INSERT INTO "product_properties" VALUES(21,14,3,NULL,'2011-12-02 16:01:01.859375','2011-12-02 16:01:01.859375');
+INSERT INTO "product_properties" VALUES(22,14,2,NULL,'2011-12-02 16:01:01.859375','2011-12-02 16:01:01.859375');
+INSERT INTO "product_properties" VALUES(23,15,3,'','2011-12-02 16:30:16.796875','2011-12-02 20:14:42.296875');
+INSERT INTO "product_properties" VALUES(24,15,2,'Electrolux','2011-12-02 16:30:16.812500','2011-12-02 20:14:42.296875');
+INSERT INTO "product_properties" VALUES(25,15,4,'Cuadrado','2011-12-02 16:30:16.812500','2011-12-02 20:14:42.296875');
+INSERT INTO "product_properties" VALUES(26,16,3,NULL,'2011-12-02 20:22:38.250000','2011-12-02 20:22:38.250000');
+INSERT INTO "product_properties" VALUES(27,16,2,NULL,'2011-12-02 20:22:38.250000','2011-12-02 20:22:38.250000');
+INSERT INTO "product_properties" VALUES(28,16,4,NULL,'2011-12-02 20:22:38.265625','2011-12-02 20:22:38.265625');
+INSERT INTO "product_properties" VALUES(29,17,3,'Blanco','2011-12-02 20:23:13.890625','2011-12-02 21:21:24.437500');
+INSERT INTO "product_properties" VALUES(30,17,2,'Elextrolux','2011-12-02 20:23:13.890625','2011-12-02 21:20:49.796875');
+INSERT INTO "product_properties" VALUES(31,17,4,'Cuadrado','2011-12-02 20:23:13.890625','2011-12-02 21:20:49.796875');
+INSERT INTO "product_properties" VALUES(32,18,3,'','2011-12-02 21:37:29.843750','2011-12-02 21:49:43.562500');
+INSERT INTO "product_properties" VALUES(33,18,2,'Electrolux','2011-12-02 21:37:29.843750','2011-12-02 21:49:43.562500');
+INSERT INTO "product_properties" VALUES(34,18,4,'de Mesa','2011-12-02 21:37:29.843750','2011-12-02 21:49:43.562500');
+INSERT INTO "product_properties" VALUES(35,19,3,'Cromo','2011-12-02 21:58:03.687500','2011-12-02 22:03:48.968750');
+INSERT INTO "product_properties" VALUES(36,19,2,'Electrolux','2011-12-02 21:58:03.687500','2011-12-02 22:03:48.968750');
+INSERT INTO "product_properties" VALUES(37,19,4,'de Mesa','2011-12-02 21:58:03.687500','2011-12-02 22:03:48.968750');
+INSERT INTO "product_properties" VALUES(38,20,3,'Cromado','2011-12-02 22:07:02.781250','2011-12-02 22:14:11.125000');
+INSERT INTO "product_properties" VALUES(39,20,2,'Electrolux','2011-12-02 22:07:02.781250','2011-12-02 22:14:11.125000');
+INSERT INTO "product_properties" VALUES(40,20,4,'Pedestal','2011-12-02 22:07:02.796875','2011-12-02 22:14:11.125000');
+INSERT INTO "product_properties" VALUES(41,21,3,'Negro','2011-12-02 22:27:56.250000','2011-12-02 22:34:33.937500');
+INSERT INTO "product_properties" VALUES(42,21,2,'Electrolux','2011-12-02 22:27:56.250000','2011-12-02 22:34:33.937500');
+INSERT INTO "product_properties" VALUES(43,21,4,'Torre','2011-12-02 22:27:56.250000','2011-12-02 22:34:33.937500');
+INSERT INTO "product_properties" VALUES(44,22,3,NULL,'2011-12-03 01:22:39.828125','2011-12-03 01:22:39.828125');
+INSERT INTO "product_properties" VALUES(45,22,2,NULL,'2011-12-03 01:22:39.828125','2011-12-03 01:22:39.828125');
+INSERT INTO "product_properties" VALUES(46,22,4,NULL,'2011-12-03 01:22:39.843750','2011-12-03 01:22:39.843750');
+INSERT INTO "product_properties" VALUES(47,23,3,'','2011-12-03 01:42:52.609375','2011-12-03 01:46:51.546875');
+INSERT INTO "product_properties" VALUES(48,23,2,'Electrolux','2011-12-03 01:42:52.609375','2011-12-03 01:46:51.546875');
+INSERT INTO "product_properties" VALUES(49,23,4,'Escritorio','2011-12-03 01:42:52.609375','2011-12-03 01:46:51.546875');
+INSERT INTO "product_properties" VALUES(50,24,3,'Negro','2011-12-03 02:03:12.671875','2011-12-03 02:09:56.828125');
+INSERT INTO "product_properties" VALUES(51,24,2,'Electrolux','2011-12-03 02:03:12.671875','2011-12-03 02:09:56.828125');
+INSERT INTO "product_properties" VALUES(52,24,4,'Escritorio','2011-12-03 02:03:12.671875','2011-12-03 02:09:56.828125');
+INSERT INTO "product_properties" VALUES(53,25,3,'','2011-12-03 02:13:56.109375','2011-12-03 02:18:51.890625');
+INSERT INTO "product_properties" VALUES(54,25,2,'Electrolux','2011-12-03 02:13:56.125000','2011-12-03 02:18:51.890625');
+INSERT INTO "product_properties" VALUES(55,25,4,'Cuadrado','2011-12-03 02:13:56.125000','2011-12-03 02:18:51.890625');
+INSERT INTO "product_properties" VALUES(56,26,3,'Varios','2011-12-03 02:26:05.031250','2011-12-03 02:31:54.265625');
+INSERT INTO "product_properties" VALUES(57,26,2,'Electrolux','2011-12-03 02:26:05.031250','2011-12-03 02:31:54.281250');
+INSERT INTO "product_properties" VALUES(58,26,4,'Pedestal','2011-12-03 02:26:05.031250','2011-12-03 02:31:54.281250');
+INSERT INTO "product_properties" VALUES(59,27,5,'17 Lits.','2011-12-03 04:27:29.609375','2011-12-03 04:48:17.656250');
+INSERT INTO "product_properties" VALUES(62,28,5,'23 Lits.','2011-12-03 04:56:08.640625','2011-12-03 05:06:49.281250');
+INSERT INTO "product_properties" VALUES(64,28,2,'Electrolux','2011-12-03 04:56:08.656250','2011-12-03 05:06:49.281250');
+INSERT INTO "product_properties" VALUES(69,29,3,'Negro','2011-12-03 05:49:20.078125','2011-12-03 05:49:20.078125');
+INSERT INTO "product_properties" VALUES(70,29,2,'AOC','2011-12-03 05:49:20.078125','2011-12-03 05:49:20.078125');
+INSERT INTO "product_properties" VALUES(71,29,6,'24"','2011-12-03 05:49:20.093750','2011-12-03 05:49:20.093750');
+INSERT INTO "product_properties" VALUES(72,29,7,'Widescreen 1920x1080','2011-12-03 05:49:20.093750','2011-12-03 05:49:20.093750');
+INSERT INTO "product_properties" VALUES(73,30,3,'','2011-12-03 13:32:05.671875','2011-12-03 21:23:28.546875');
+INSERT INTO "product_properties" VALUES(74,30,2,'AOC','2011-12-03 13:32:05.671875','2011-12-03 21:23:28.546875');
+INSERT INTO "product_properties" VALUES(75,30,6,'27"','2011-12-03 13:32:05.671875','2011-12-03 21:23:28.546875');
+INSERT INTO "product_properties" VALUES(76,30,7,'1920x1080','2011-12-03 13:32:05.671875','2011-12-03 21:23:28.546875');
+INSERT INTO "product_properties" VALUES(77,31,3,'Negro','2011-12-03 21:42:10.656250','2011-12-03 21:56:05.890625');
+INSERT INTO "product_properties" VALUES(78,31,2,'AOC','2011-12-03 21:42:10.656250','2011-12-03 21:56:05.890625');
+INSERT INTO "product_properties" VALUES(79,31,6,'15.6"','2011-12-03 21:42:10.656250','2011-12-03 21:56:05.890625');
+INSERT INTO "product_properties" VALUES(81,32,5,NULL,'2011-12-03 22:25:09.390625','2011-12-03 22:25:09.390625');
+INSERT INTO "product_properties" VALUES(82,32,3,NULL,'2011-12-03 22:25:09.406250','2011-12-03 22:25:09.406250');
+INSERT INTO "product_properties" VALUES(83,32,2,NULL,'2011-12-03 22:25:09.406250','2011-12-03 22:25:09.406250');
+INSERT INTO "product_properties" VALUES(84,33,5,'28 Lits','2011-12-03 22:38:09.640625','2011-12-04 00:08:32.390625');
+INSERT INTO "product_properties" VALUES(85,33,3,'Espejo','2011-12-03 22:38:09.828125','2011-12-04 00:08:32.390625');
+INSERT INTO "product_properties" VALUES(86,33,2,'Elextrolux','2011-12-03 22:38:09.828125','2011-12-04 00:08:32.390625');
+INSERT INTO "product_properties" VALUES(87,34,5,'31 Lits.','2011-12-04 03:39:48.468750','2011-12-04 03:44:36.734375');
+INSERT INTO "product_properties" VALUES(88,34,3,'Espejo','2011-12-04 03:39:48.484375','2011-12-04 03:44:36.734375');
+INSERT INTO "product_properties" VALUES(89,34,2,'Electrolux','2011-12-04 03:39:48.484375','2011-12-04 03:44:36.734375');
+INSERT INTO "product_properties" VALUES(90,11,3,'','2011-12-04 03:58:05.703125','2011-12-04 03:58:05.703125');
+INSERT INTO "product_properties" VALUES(91,11,2,'B&D','2011-12-04 03:58:05.703125','2011-12-04 03:58:05.703125');
+INSERT INTO "product_properties" VALUES(92,11,5,'10 Lits.','2011-12-04 03:58:05.703125','2011-12-04 03:58:05.703125');
+INSERT INTO "product_properties" VALUES(93,12,5,'20 Lits.','2011-12-04 04:00:14.296875','2011-12-04 04:00:14.296875');
+INSERT INTO "product_properties" VALUES(94,13,5,'20 Lits.','2011-12-04 04:03:42.031250','2011-12-04 04:03:42.031250');
+INSERT INTO "product_properties" VALUES(95,35,3,NULL,'2011-12-04 04:05:58.343750','2011-12-04 04:05:58.343750');
+INSERT INTO "product_properties" VALUES(96,35,2,NULL,'2011-12-04 04:05:58.343750','2011-12-04 04:05:58.343750');
+INSERT INTO "product_properties" VALUES(97,35,5,NULL,'2011-12-04 04:05:58.343750','2011-12-04 04:05:58.343750');
+INSERT INTO "product_properties" VALUES(98,36,3,'Negro','2011-12-04 04:16:48.281250','2011-12-04 04:27:31.718750');
+INSERT INTO "product_properties" VALUES(99,36,2,'Electrolux','2011-12-04 04:16:48.609375','2011-12-04 04:27:31.718750');
+INSERT INTO "product_properties" VALUES(100,36,5,'14 Lits.','2011-12-04 04:16:48.609375','2011-12-04 04:27:31.718750');
+INSERT INTO "product_properties" VALUES(101,37,3,NULL,'2011-12-04 04:38:39.515625','2011-12-04 04:38:39.515625');
+INSERT INTO "product_properties" VALUES(102,37,2,NULL,'2011-12-04 04:38:39.531250','2011-12-04 04:38:39.531250');
+INSERT INTO "product_properties" VALUES(103,37,5,NULL,'2011-12-04 04:38:39.546875','2011-12-04 04:38:39.546875');
+INSERT INTO "product_properties" VALUES(104,38,3,NULL,'2011-12-04 04:51:59.937500','2011-12-04 04:51:59.937500');
+INSERT INTO "product_properties" VALUES(105,38,2,NULL,'2011-12-04 04:51:59.937500','2011-12-04 04:51:59.937500');
+INSERT INTO "product_properties" VALUES(106,38,5,NULL,'2011-12-04 04:51:59.953125','2011-12-04 04:51:59.953125');
+INSERT INTO "product_properties" VALUES(107,39,5,'17 Ltrs.','2011-12-07 15:43:13.390625','2011-12-07 15:49:02.281250');
+INSERT INTO "product_properties" VALUES(108,39,3,'Espejo','2011-12-07 15:43:13.390625','2011-12-07 15:49:02.296875');
+INSERT INTO "product_properties" VALUES(109,39,2,'Electrolux','2011-12-07 15:43:13.390625','2011-12-07 15:49:02.296875');
+DROP TABLE IF EXISTS "product_scopes";
+CREATE TABLE "product_scopes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_group_id" integer, "name" varchar(255), "arguments" text);
+INSERT INTO "product_scopes" VALUES(3,1,'descend_by_popularity','--- []
+');
+DROP TABLE IF EXISTS "products";
+CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT '' NOT NULL, "description" text, "created_at" datetime, "updated_at" datetime, "permalink" varchar(255), "available_on" datetime, "tax_category_id" integer, "shipping_category_id" integer, "deleted_at" datetime, "meta_description" varchar(255), "meta_keywords" varchar(255), "count_on_hand" integer DEFAULT 0 NOT NULL, "vendor_id" integer);
+INSERT INTO "products" VALUES(1,'Dispensador de Agua Electrolux','DISPENSADOR AGUA FRIA/CALIENTE C/ALACENA
+','2011-12-01 00:34:48.656250','2011-12-27 15:12:34.152048','dispensador-agua','2011-11-30 00:00:00.000000',1,NULL,NULL,'dispensador-agua-alcena-Electrolux','dispensador-agua',20,NULL);
+INSERT INTO "products" VALUES(2,'Dispensador de Agua Electrolux','DISPENSADOR AGUA FRIA/CALIENTE C/ALACENA BLANCO
+Electrolux','2011-12-01 01:41:05.828125','2011-12-01 21:29:30.234375','dispensador-de-agua-con-alacena','2011-11-30 00:00:00.000000',1,NULL,NULL,'Dispensador-Agua-Electrolux','Dispensador, Agua, Electrolux',10,NULL);
+INSERT INTO "products" VALUES(3,'Dispensador de Agua con nevera - Electrolux','DISPENSADOR AGUA FRIA/CALIENTE C/NEVERA SILVER
+Electrolux','2011-12-01 02:47:16.328125','2011-12-01 02:51:16.265625','dispensador-de-agua-con-nevera-electrolux','2011-11-30 00:00:00.000000',1,NULL,NULL,'dispensador-agua-nevera-electrolux','dispensador-agua-nevera-electrolux',10,NULL);
+INSERT INTO "products" VALUES(4,'COPY OF DISPENSADOR AGUA Electrolux','DISPENSADOR AGUA FRIA/CALIENTE C/ALACENA SILVER
+','2011-12-01 02:55:40.890625','2011-12-01 03:00:35.625000','dispensador-agua-1','2011-11-30 00:00:00.000000',1,NULL,'2011-12-01 03:00:35.593750','dispensador-agua-alcena-Electrolux','dispensador-agua',10,NULL);
+INSERT INTO "products" VALUES(5,'COPY OF Dispensador de Agua con nevera - Electrolux','DISPENSADOR AGUA FRIA/CALIENTE C/NEVERA SILVER
+Electrolux','2011-12-01 02:55:52.734375','2011-12-01 03:00:43.328125','dispensador-de-agua-con-nevera-electrolux-1','2011-11-30 00:00:00.000000',1,NULL,'2011-12-01 03:00:43.296875','dispensador-agua-nevera-electrolux','dispensador-agua-nevera-electrolux',10,NULL);
+INSERT INTO "products" VALUES(6,'Dispensador de Agua con nevera - Electrolux','DISPENSADOR AGUA FRIA/CALIENTE C/NEVERA Blanco
+Electrolux','2011-12-01 02:56:04.390625','2011-12-01 02:58:21.515625','dispensador-de-agua-con-nevera-electrolux-2','2011-11-30 00:00:00.000000',1,NULL,NULL,'dispensador-agua-nevera-electrolux','dispensador-agua-nevera-electrolux',10,NULL);
+INSERT INTO "products" VALUES(7,'Horno Tostador B&D','"HORNO TOSTADOR ACERO INOX. INFRAROJO DIGITAL   B&D: Hasta 50% mas rapido que un horno de convección
+50+ recetas pre-programadas
+Recalienta, cocina, asa
+Menu programacion convierte recetas tradicionales en
+tiempo Infrawave
+Display digital en español
+Panel de control en español
+Facil de limpiar"','2011-12-01 03:08:35.031250','2011-12-02 14:37:56.640625','horno-tostador-bdfc151b','2011-11-30 00:00:00.000000',1,NULL,NULL,'Horno-Tostador-B&D','Horno-Tostador-B&D',10,NULL);
+INSERT INTO "products" VALUES(8,'Horno Tostador B&D','HORNO TOSTADOR BLANCO  
+B&D','2011-12-01 03:14:56.296875','2011-12-02 14:50:39.468750','horno-tostador-bdtro420','2011-11-30 00:00:00.000000',1,NULL,NULL,'Horno-Tostador-B&D','Horno-Tostador-B&D',10,NULL);
+INSERT INTO "products" VALUES(9,'Horno Tostador B&D','HORNO TOSTADOR ACERO INOX.  
+Black&Decker
+','2011-12-01 03:26:27.906250','2011-12-02 14:52:34.000000','horno-tostador-bdtro965','2011-11-30 00:00:00.000000',1,NULL,NULL,'Horno-Tostador-B&D','Horno-Tostador-B&D',10,NULL);
+INSERT INTO "products" VALUES(10,'Horno Tostador B&D','HORNO TOSTADOR BLANCO X.   B&D Comodidad Multifuncional Controles fáciles de manejar para tostar, hornear, asar y conservar el calor Máxima Conveniencia Cronómetro de 60 minutos con señal audible y apagado automático al finalizar el ciclo de cocción Fácil de Usar Puerta transparente de vidrio permite supervisar la cocción de los alimentos Fácil de Limpiar Bandeja removible para fácil y rápida limpieza de residuos','2011-12-01 03:38:44.078125','2011-12-02 15:01:19.062500','horno-tostador-bdtro4051','2011-11-30 00:00:00.000000',1,NULL,NULL,'Horno-Tostador-B&D','Horno-Tostador-B&D',10,NULL);
+INSERT INTO "products" VALUES(11,'Horno Tostador B&D','HORNO TOSTADOR BLANCO 10 LTS.   
+B&D','2011-12-01 03:50:45.296875','2011-12-02 15:03:38.031250','horno-tostador-bdtro500','2011-12-01 09:00:00.000000',1,NULL,NULL,'Horno-Tostador-B&D','Horno-Tostador-B&D',10,NULL);
+INSERT INTO "products" VALUES(12,'Horno Tostador B&D','"HORNO TOSTADOR ACERO INOX. 20 LTS.   B&D: apacidad extra grande para hornear, asar, tostar y recalentar una variedad de alimentos.
+Tuesta hasta tres bagels por mitad o seis rebanadas de panInterior curvo extra profundo acomoda una pizza de 12'', ideal para preparar una pizza crujiente al gusto.
+Bandeja de residuos corrediza y removible fácil de limpiar.
+1500 Watt..
+Capacidad 21 litros.
+Atractivo modelo de acero inoxidable cepillado, luce bien en cualquier cocina.
+Cronómetro de 60 minutos con apagado automático y señal audible para mayor tranquilidad.
+Lujoso modelo curvo por enfrente ofrece mayor visibilidadIncluye molde de hornear y una parrilla para asar."','2011-12-02 14:20:30.187500','2011-12-02 15:09:59.312500','horno-tostador-bdcto650','2011-12-01 04:30:00.000000',1,NULL,NULL,'Horno-Tostador-B&D','Horno-Tostador-B&D',10,NULL);
+INSERT INTO "products" VALUES(13,'Horno Tostador B&D','"HORNO TOSTADOR ACERO INOX. 20 LTS. DIGITAL  B&D. Rendimiento superior: La cocción por convección distribuye el calor uniformemente. Versatilidad: Cronómetro de 120 minutos permite hornear, asar y tostar una variedad de alimentos Parrilla corrediza de 2 posiciones útil para asar. Diseño práctico: Observe la cocción perfecta de los alimentos a través de la amplia puerta transparente de vidrio"','2011-12-02 15:34:21.343750','2011-12-02 15:58:25.828125','horno-tostador-bdcto6302','2011-12-02 04:30:00.000000',1,NULL,NULL,'Horno-Tostador-B&D','Horno-Tostador-B&D',10,NULL);
+INSERT INTO "products" VALUES(14,'Horno Tostador B&D',NULL,'2011-12-02 16:01:01.734375','2011-12-02 16:02:21.937500','horno-tostador-b-and-d','2011-12-02 04:30:00.000000',NULL,NULL,'2011-12-02 16:02:21.906250',NULL,NULL,0,NULL);
+INSERT INTO "products" VALUES(15,'Ventilador Cuadrado Electrolux','"VENTILADOR TURBO 10"" TU01: velocidades. Rejilla giratoria con control de velocidad. Asa de transporte. Temporizador de 60 min. Fusible térmico de seguridad. Mejor distribución de la salida del aire"
+','2011-12-02 16:30:16.687500','2011-12-02 20:20:42.515625','ventiladores-cuadrado-electrolux-tu01','2011-12-02 04:30:00.000000',1,NULL,NULL,'Ventiladores-Cuadrado-Electrolux','Ventiladores-Cuadrado-Electrolux',0,NULL);
+INSERT INTO "products" VALUES(16,'Ventilador Cuadrado Electrolux',NULL,'2011-12-02 20:22:38.140625','2011-12-02 21:34:07.859375','ventilador-cuadrado-electrolux','2011-12-02 04:30:00.000000',NULL,NULL,'2011-12-02 21:34:07.375000',NULL,NULL,0,NULL);
+INSERT INTO "products" VALUES(17,'Ventilador Cuadrado Electrolux','"VENTILADOR TURBO 18"" TU41: 3 velocidades. Rejilla giratoria con control de velocidad. Asa de transporte. Temporizador de 120 min. Fusible térmico de seguridad
+Turbo: Mejor distribución de la salida del aire".','2011-12-02 20:23:13.781250','2011-12-02 21:20:49.781250','ventilador-cuadrado-electrolux-tu41','2011-12-02 04:30:00.000000',1,NULL,NULL,'Ventiladores-Cuadrado-Electrolux','Ventiladores-Cuadrado-Electrolux',0,NULL);
+INSERT INTO "products" VALUES(18,'Ventilador Mesa Electrolux','"VENTILADOR MESA/PARED PLASTICO VM22: Ventilador de plástico. 3 velocidades. Oscilación. Asa de transporte. Temporizador de 120 min. Fusible térmico de seguridad. Inclinación vertical. Aspas transparentes"','2011-12-02 21:37:29.718750','2011-12-02 21:45:46.359375','ventilador-mesa-electrolux','2011-12-02 04:30:00.000000',1,NULL,NULL,'Ventilador- Mesa-Electrolux','Ventilador- Mesa-Electrolux',10,NULL);
+INSERT INTO "products" VALUES(19,'Ventilador Mesa Electrolux','"VENTILADOR MESA/PARED PLASTICO VM37: Ventilador metálico. 3 velocidades. Oscilación. Asa de transporte. Fusible térmico de seguridad. Inclinación vertical. Terminación cromada. Aspas transparentes"
+','2011-12-02 21:58:03.562500','2011-12-02 22:01:31.156250','ventilador-mesa-electrolux-vm37','2011-12-02 04:30:00.000000',1,NULL,NULL,'Ventilador Mesa Electrolux','Ventilador Mesa Electrolux',10,NULL);
+INSERT INTO "products" VALUES(20,'Ventilador Pedestal Electrolux','"VENTILADOR PIE METALICO VP10: 3 velocidades. Oscilación. Fusible térmico de seguridad. Inclinación vertical. Terminación cromada. Rejilla de 120 radios. Aspas transparentes. Base redonda"','2011-12-02 22:07:01.609375','2011-12-02 22:10:03.203125','ventilador-pedestal-electrolux-vp10','2011-12-02 04:30:00.000000',1,NULL,NULL,'Ventilador Pedestal Electrolux','Ventilador Pedestal Electrolux',10,NULL);
+INSERT INTO "products" VALUES(21,'Ventilador Torre Electrolux','"VENTILADOR TORRE 90W: Velocidades: 3 Temporadizador: N/A. Material: Plástico y metal. Panel de control Touch Screen. Control remoto. 3 ventiladores independientes. 7,5H Timer. 3 modalidades de ventilación (Normal, natural, dormir). Oscilación Horizontal de 90°. Diseño ultra delgado."','2011-12-02 22:27:56.140625','2011-12-02 22:31:52.359375','ventilador-torre-electrolux-vtl01','2011-12-02 04:30:00.000000',1,NULL,NULL,'ventilador-torre-electrolux-VTL01','ventilador-torre-electrolux-VTL01',10,NULL);
+INSERT INTO "products" VALUES(22,'Ventiladores Torre Electrolux','"VENTILADOR DE TORRE 35 CM TFV10: 3 velocidades. 3 hélices. Oscilación el propulsor de limpieza fácil. Correa de transporte. Ajuste de inclinación. Extraíble barandillas. Base para fijar en la pared. Ultra silencioso: hasta 50 db. De seguridad contra el sobrecalentamiento"','2011-12-03 01:22:39.671875','2011-12-03 01:26:38.093750','ventiladores-torre-electrolux-tfv10','2011-12-02 04:30:00.000000',1,NULL,NULL,'ventiladores-torre-electrolux-TFV10','ventiladores-torre-electrolux-TFV10',10,NULL);
+INSERT INTO "products" VALUES(23,'Ventiladores Escritorio Electrolux ','VENTILADOR D/ESCRITORIO 40 CM DFV20
+Electrolux','2011-12-03 01:42:52.437500','2011-12-03 01:44:53.734375','ventiladores-escritorio-electrolux-dfv10','2011-12-02 04:30:00.000000',1,NULL,NULL,'ventiladores-escritorio-electrolux-DFV10','ventiladores-escritorio-electrolux-DFV10',10,NULL);
+INSERT INTO "products" VALUES(24,'Ventilador Escritorio Electrolux ','VENTILADOR D/ESCRITORIO 40 CM DFV20
+Electrolux','2011-12-03 02:03:12.468750','2011-12-03 02:04:57.140625','ventilador-escritorio-electrolux-dfv20','2011-12-02 04:30:00.000000',1,NULL,NULL,'ventilador-escritorio-electrolux-DFV20','ventilador-escritorio-electrolux-DFV20',10,NULL);
+INSERT INTO "products" VALUES(25,'Ventilador Cuadrado Electrolux ','VENTILADORBOX CUADRADO 40 CM BFV10
+Electrolux','2011-12-03 02:13:56.000000','2011-12-03 02:15:49.109375','ventilador-cuadrado-electrolux-bfv10','2011-12-02 04:30:00.000000',1,NULL,NULL,'ventilador-cuadrado-electrolux-BFV10','ventilador-cuadrado-electrolux-BFV10',10,NULL);
+INSERT INTO "products" VALUES(26,'Ventilador Pedestal Electrolux ','VENTILADOR D/PEDESTAL  40 CM SFV10
+Electrolux','2011-12-03 02:26:04.875000','2011-12-03 02:29:19.796875','ventiladores-pedestal-electrolux-sfv10','2011-12-02 04:30:00.000000',1,NULL,NULL,'ventiladores-pedestal-electrolux-SFV10','ventiladores-pedestal-electrolux-SFV10',10,NULL);
+INSERT INTO "products" VALUES(27,'Microondas  Electrolux ','"MICROONDAS 17 Lts. Blanco: Capacidad: 17 lits. Panel de control digital. Puertas de cristal resistentes al calor. Seis recetas preprogramadas. Función de descongelado por tiempo y peso. Opción para grabar tus recetas favoritas. Función Express Cook. Disponible en Blanco y Espejo."
+Electrolux ','2011-12-03 04:27:27.406250','2011-12-03 04:48:17.656250','microondas-electrolux-emda17s3mj','2011-12-03 04:30:00.000000',1,NULL,NULL,'microondas-electrolux-EMDA17S3MJ','microondas-electrolux-EMDA17S3MJ',20,NULL);
+INSERT INTO "products" VALUES(28,'Microondas  Electrolux ','MICROONDAS 23 Lts.
+','2011-12-03 04:56:08.531250','2011-12-03 05:06:49.281250','microondas-electrolux-emda23g3mj','2011-12-03 04:30:00.000000',1,NULL,NULL,'microondas-electrolux-EMDA23G3MJ','microondas-electrolux-EMDA23G3MJ',20,NULL);
+INSERT INTO "products" VALUES(29,'Televisores LCD AOC ','"AOC Monitor LED TV 24"", widescreen Full HD LED-LCD TV with NTSC, PAL-M& N Tuners, Diseño Delgado, resolución: Widescreen 1920x1080"','2011-12-03 05:27:30.734375','2011-12-03 05:30:06.453125','televisores-lcd-aoc-le24h037','2011-12-03 04:30:00.000000',1,NULL,NULL,'televisores-lcd-aoc-LE24H037','televisores-lcd-aoc-LE24H037',10,NULL);
+INSERT INTO "products" VALUES(30,'Televisores FULLHD AOC ','"AOC LCD 27"" Full HD/C27H030. CARACTERÍSTICAS DEL PRODUCTO LCD 27"" Full HD LC27H030, Definición de Imagen: Full HD,  Resolución en Línea: 1920x1080. Potencia Parlantes: 10 W, Brillo: 300 cd/m2, Contraste: 50.000:1, Sintonizador TDT: No. 1 año de Garantía".','2011-12-03 13:32:05.484375','2011-12-03 13:36:49.406250','televisores-fullhd-aoc-lc27h030','2011-12-03 04:30:00.000000',1,NULL,NULL,'televisores-fullhd-aoc-LC27H030','televisores-fullhd-aoc-LC27H030',20,NULL);
+INSERT INTO "products" VALUES(31,'Monitor LED AOC ','Monitor LED 15.6" LED 
+AOC','2011-12-03 21:42:10.187500','2011-12-03 21:44:04.890625','monitor-led-aoc-e1621sw','2011-12-03 04:30:00.000000',1,NULL,NULL,'monitor-led-aoc-e1621sw','monitor-led-aoc-e1621sw',20,NULL);
+INSERT INTO "products" VALUES(32,'Microondas  Electrolux ',NULL,'2011-12-03 22:25:09.109375','2011-12-03 22:32:23.453125','microondas-electrolux','2011-12-03 04:30:00.000000',NULL,NULL,'2011-12-03 22:32:23.421875',NULL,NULL,0,NULL);
+INSERT INTO "products" VALUES(33,'Microondas  Electrolux ','MICROONDAS 23 Lts. ESPEJO  NUEVO
+Electrolux','2011-12-03 22:38:09.218750','2011-12-04 00:08:32.390625','microondas-electrolux-emda28g3mj','2011-12-03 04:30:00.000000',1,NULL,NULL,'microondas-electrolux-EMDA28G3MJ','microondas-electrolux-EMDA28G3MJ',20,NULL);
+INSERT INTO "products" VALUES(34,'Microondas  Electrolux ','MICROONDAS 31 Lts. ESPEJO  NUEVO
+Electrolux','2011-12-04 03:39:47.656250','2011-12-04 03:41:40.328125','microondas-electrolux-emmn311d2sm','2011-12-03 04:30:00.000000',1,NULL,NULL,'microondas-electrolux-EMMN311D2SM','microondas-electrolux-EMMN311D2SM',10,NULL);
+INSERT INTO "products" VALUES(35,'Horno Tostador  Electrolux ','HORNO TOSTADOR 9 Lts. NEGRO
+Electrolux','2011-12-04 04:05:57.250000','2011-12-04 04:11:43.375000','horno-tostador-electrolux-efa091m1pb','2011-12-03 04:30:00.000000',1,NULL,'2011-12-04 04:11:43.343750','horno-tostador-electrolux-EFA091M1PB','horno-tostador-electrolux-EFA091M1PB',10,NULL);
+INSERT INTO "products" VALUES(36,'Horno Tostador  Electrolux ','HORNO TOSTADOR 14 Lts. 
+Electrolux','2011-12-04 04:16:47.843750','2011-12-04 04:58:59.484375','horno-tostador-electrolux-efd141msp','2011-12-03 04:30:00.000000',1,NULL,'2011-12-04 04:50:45.890625','horno-tostador-electrolux-EFD141MSP','horno-tostador-electrolux-EFD141MSP',20,NULL);
+INSERT INTO "products" VALUES(37,'Horno Tostador  Electrolux ','HORNO TOSTADOR 9 Lts. 
+Electrolux','2011-12-04 04:38:39.328125','2011-12-04 05:05:49.234375','horno-tostador-electrolux-efa091m1p','2011-12-04 04:30:00.000000',1,NULL,'2011-12-04 05:05:48.890625','horno-tostador-electrolux-EFA091M1P','horno-tostador-electrolux-EFA091M1P',20,NULL);
+INSERT INTO "products" VALUES(38,'Horno Tostador  Electrolux ','HORNO TOSTADOR 14 Lts. 
+Electrolux','2011-12-04 04:51:59.765625','2011-12-04 04:53:58.359375','horno-tostador-electrolux-efd141msp','2011-12-04 04:30:00.000000',1,NULL,NULL,'horno-tostador-electrolux-EFD141MSP','horno-tostador-electrolux-EFD141MSP',10,NULL);
+INSERT INTO "products" VALUES(39,'Microondas  Electrolux ','MICROONDAS 17 Lts. ESPEJO NUEVO
+Electrolux','2011-12-07 15:43:12.875000','2011-12-07 15:45:39.125000','microondas-electrolux-emx171d1pm','2011-12-07 04:30:00.000000',1,NULL,NULL,'microondas-electrolux-EMX171D1PM','microondas-electrolux-EMX171D1PM',10,NULL);
+DROP TABLE IF EXISTS "products_promotion_rules";
+CREATE TABLE "products_promotion_rules" ("product_id" integer, "promotion_rule_id" integer);
+DROP TABLE IF EXISTS "products_taxons";
+CREATE TABLE "products_taxons" ("product_id" integer, "taxon_id" integer);
+INSERT INTO "products_taxons" VALUES(1,7);
+INSERT INTO "products_taxons" VALUES(2,7);
+INSERT INTO "products_taxons" VALUES(3,8);
+INSERT INTO "products_taxons" VALUES(4,7);
+INSERT INTO "products_taxons" VALUES(5,8);
+INSERT INTO "products_taxons" VALUES(6,8);
+INSERT INTO "products_taxons" VALUES(7,4);
+INSERT INTO "products_taxons" VALUES(9,4);
+INSERT INTO "products_taxons" VALUES(11,4);
+INSERT INTO "products_taxons" VALUES(13,4);
+INSERT INTO "products_taxons" VALUES(15,11);
+INSERT INTO "products_taxons" VALUES(18,13);
+INSERT INTO "products_taxons" VALUES(19,13);
+INSERT INTO "products_taxons" VALUES(21,15);
+INSERT INTO "products_taxons" VALUES(23,12);
+INSERT INTO "products_taxons" VALUES(24,12);
+INSERT INTO "products_taxons" VALUES(25,11);
+INSERT INTO "products_taxons" VALUES(20,14);
+INSERT INTO "products_taxons" VALUES(26,14);
+INSERT INTO "products_taxons" VALUES(27,5);
+INSERT INTO "products_taxons" VALUES(28,5);
+INSERT INTO "products_taxons" VALUES(29,18);
+INSERT INTO "products_taxons" VALUES(30,21);
+INSERT INTO "products_taxons" VALUES(31,23);
+INSERT INTO "products_taxons" VALUES(33,5);
+INSERT INTO "products_taxons" VALUES(34,5);
+INSERT INTO "products_taxons" VALUES(36,4);
+INSERT INTO "products_taxons" VALUES(39,5);
+DROP TABLE IF EXISTS "promotion_action_line_items";
+CREATE TABLE "promotion_action_line_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "promotion_action_id" integer, "variant_id" integer, "quantity" integer DEFAULT 1);
+DROP TABLE IF EXISTS "promotion_actions";
+CREATE TABLE "promotion_actions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "activator_id" integer, "position" integer, "type" varchar(255));
+DROP TABLE IF EXISTS "promotion_rules";
+CREATE TABLE "promotion_rules" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "activator_id" integer, "user_id" integer, "product_group_id" integer, "created_at" datetime, "updated_at" datetime, "type" varchar(255));
+DROP TABLE IF EXISTS "promotion_rules_users";
+CREATE TABLE "promotion_rules_users" ("user_id" integer, "promotion_rule_id" integer);
+DROP TABLE IF EXISTS "properties";
+CREATE TABLE "properties" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "presentation" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime);
+INSERT INTO "properties" VALUES(2,'Marca','Marca','2011-12-01 01:07:30.390625','2011-12-02 15:28:23.984375');
+INSERT INTO "properties" VALUES(3,'Color','Color','2011-12-01 02:26:15.093750','2011-12-02 15:28:54.906250');
+INSERT INTO "properties" VALUES(4,'Tipo','Tipo','2011-12-02 16:27:49.609375','2011-12-02 16:27:49.609375');
+INSERT INTO "properties" VALUES(5,'Capacidad','Capacidad','2011-12-03 02:48:12.687500','2011-12-03 02:48:12.687500');
+INSERT INTO "properties" VALUES(6,'Pulgadas','Pulgadas','2011-12-03 05:24:02.828125','2011-12-03 05:24:02.828125');
+INSERT INTO "properties" VALUES(7,'Resolución','Resolución','2011-12-03 05:45:48.281250','2011-12-03 05:45:48.281250');
+DROP TABLE IF EXISTS "properties_prototypes";
+CREATE TABLE "properties_prototypes" ("prototype_id" integer, "property_id" integer);
+INSERT INTO "properties_prototypes" VALUES(1,3);
+INSERT INTO "properties_prototypes" VALUES(1,2);
+INSERT INTO "properties_prototypes" VALUES(2,3);
+INSERT INTO "properties_prototypes" VALUES(2,2);
+INSERT INTO "properties_prototypes" VALUES(3,3);
+INSERT INTO "properties_prototypes" VALUES(3,2);
+INSERT INTO "properties_prototypes" VALUES(3,4);
+INSERT INTO "properties_prototypes" VALUES(4,5);
+INSERT INTO "properties_prototypes" VALUES(4,3);
+INSERT INTO "properties_prototypes" VALUES(4,2);
+INSERT INTO "properties_prototypes" VALUES(5,3);
+INSERT INTO "properties_prototypes" VALUES(5,2);
+INSERT INTO "properties_prototypes" VALUES(5,6);
+INSERT INTO "properties_prototypes" VALUES(5,7);
+INSERT INTO "properties_prototypes" VALUES(6,3);
+INSERT INTO "properties_prototypes" VALUES(6,2);
+INSERT INTO "properties_prototypes" VALUES(6,6);
+INSERT INTO "properties_prototypes" VALUES(6,7);
+INSERT INTO "properties_prototypes" VALUES(2,5);
+DROP TABLE IF EXISTS "prototypes";
+CREATE TABLE "prototypes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime);
+INSERT INTO "prototypes" VALUES(1,'Dispensador de Agua','2011-11-30 18:26:40.406250','2011-12-01 03:05:43.218750');
+INSERT INTO "prototypes" VALUES(2,'Horno Tostador','2011-12-01 03:04:15.843750','2011-12-01 03:04:15.843750');
+INSERT INTO "prototypes" VALUES(3,'Ventiladores','2011-12-02 16:26:17.343750','2011-12-02 16:26:17.343750');
+INSERT INTO "prototypes" VALUES(4,'Microondas','2011-12-03 02:50:11.140625','2011-12-03 02:50:11.140625');
+INSERT INTO "prototypes" VALUES(5,'TV','2011-12-03 05:25:21.781250','2011-12-03 05:25:21.781250');
+INSERT INTO "prototypes" VALUES(6,'Monitor','2011-12-03 21:37:39.187500','2011-12-03 21:37:39.187500');
+DROP TABLE IF EXISTS "return_authorizations";
+CREATE TABLE "return_authorizations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" varchar(255), "amount" decimal(8,2) DEFAULT 0.0 NOT NULL, "order_id" integer, "reason" text, "state" varchar(255), "created_at" datetime, "updated_at" datetime);
+DROP TABLE IF EXISTS "roles";
+CREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255));
+INSERT INTO "roles" VALUES(1,'admin');
+INSERT INTO "roles" VALUES(2,'vendor');
+INSERT INTO "roles" VALUES(3,'cliente');
+INSERT INTO "roles" VALUES(4,'user');
+DROP TABLE IF EXISTS "roles_users";
+CREATE TABLE "roles_users" ("role_id" integer, "user_id" integer);
+INSERT INTO "roles_users" VALUES(1,1);
+DROP TABLE IF EXISTS "shipments";
+CREATE TABLE "shipments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "order_id" integer, "shipping_method_id" integer, "tracking" varchar(255), "created_at" datetime, "updated_at" datetime, "number" varchar(255), "cost" decimal(8,2), "shipped_at" datetime, "address_id" integer, "state" varchar(255));
+INSERT INTO "shipments" VALUES(1,10,1,NULL,'2011-12-09 01:41:32.671875','2011-12-09 01:41:32.671875','H74336411013',NULL,NULL,2,'pending');
+INSERT INTO "shipments" VALUES(2,11,1,NULL,'2011-12-09 02:17:28.718750','2011-12-09 02:17:28.718750','H10744765426',NULL,NULL,4,'pending');
+INSERT INTO "shipments" VALUES(3,13,1,NULL,'2011-12-10 14:53:50.531250','2011-12-10 14:53:50.531250','H24407710256',NULL,NULL,6,'pending');
+INSERT INTO "shipments" VALUES(4,14,1,NULL,'2011-12-27 13:21:02.415912','2011-12-27 13:21:02.415912','H08787800017',NULL,NULL,8,'pending');
+INSERT INTO "shipments" VALUES(5,15,1,NULL,'2011-12-27 14:03:07.994794','2011-12-27 14:03:07.994794','H35083262706',NULL,NULL,10,'pending');
+INSERT INTO "shipments" VALUES(6,16,1,NULL,'2011-12-27 15:10:45.993722','2011-12-27 15:10:45.993722','H61367545666',NULL,NULL,12,'pending');
+INSERT INTO "shipments" VALUES(7,17,1,NULL,'2011-12-27 15:44:13.563516','2011-12-27 15:44:13.563516','H82465086360',NULL,NULL,14,'pending');
+INSERT INTO "shipments" VALUES(8,18,1,NULL,'2011-12-27 16:11:18.000955','2011-12-27 16:11:18.000955','H63650540706',NULL,NULL,16,'pending');
+DROP TABLE IF EXISTS "shipping_categories";
+CREATE TABLE "shipping_categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime);
+DROP TABLE IF EXISTS "shipping_methods";
+CREATE TABLE "shipping_methods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "zone_id" integer, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "display_on" varchar(255) DEFAULT NULL);
+INSERT INTO "shipping_methods" VALUES(1,1,'Envío Gratis','2011-12-01 01:23:26.390625','2011-12-03 03:50:13.453125','');
+DROP TABLE IF EXISTS "state_events";
+CREATE TABLE "state_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "stateful_id" integer, "user_id" integer, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "previous_state" varchar(255), "stateful_type" varchar(255), "next_state" varchar(255));
+INSERT INTO "state_events" VALUES(1,10,1,'order','2011-12-09 01:42:02.406250','2011-12-09 01:42:02.406250','cart','Order','complete');
+INSERT INTO "state_events" VALUES(2,11,1,'order','2011-12-09 02:18:07.265625','2011-12-09 02:18:07.265625','cart','Order','complete');
+INSERT INTO "state_events" VALUES(3,13,1,'order','2011-12-10 14:54:35.734375','2011-12-10 14:54:35.734375','cart','Order','complete');
+INSERT INTO "state_events" VALUES(4,14,1,'order','2011-12-27 13:21:40.932277','2011-12-27 13:21:40.932277','cart','Order','complete');
+INSERT INTO "state_events" VALUES(5,15,1,'payment','2011-12-27 13:27:53.580056','2011-12-27 13:27:53.580056','balance_due','Order','paid');
+INSERT INTO "state_events" VALUES(6,15,1,'payment','2011-12-27 14:01:01.961580','2011-12-27 14:01:01.961580','paid','Order','balance_due');
+INSERT INTO "state_events" VALUES(7,15,1,'order','2011-12-27 14:30:27.698150','2011-12-27 14:30:27.698150','cart','Order','complete');
+INSERT INTO "state_events" VALUES(8,16,1,'order','2011-12-27 15:12:38.386505','2011-12-27 15:12:38.386505','cart','Order','complete');
+INSERT INTO "state_events" VALUES(9,17,1,'order','2011-12-27 15:45:33.393174','2011-12-27 15:45:33.393174','cart','Order','complete');
+DROP TABLE IF EXISTS "states";
+CREATE TABLE "states" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "abbr" varchar(255), "country_id" integer);
+INSERT INTO "states" VALUES(1,'Zona Metropolitana Caracas','Caracas',1);
+DROP TABLE IF EXISTS "tax_categories";
+CREATE TABLE "tax_categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime, "is_default" boolean DEFAULT 'f');
+INSERT INTO "tax_categories" VALUES(1,'IVA','IVA','2011-11-26 19:53:10.515625','2011-11-26 19:53:36.843750','f');
+DROP TABLE IF EXISTS "tax_rates";
+CREATE TABLE "tax_rates" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "zone_id" integer, "amount" decimal(8,4), "created_at" datetime, "updated_at" datetime, "tax_category_id" integer);
+INSERT INTO "tax_rates" VALUES(1,1,0.12,'2011-12-09 01:46:01.890625','2011-12-09 02:03:22.921875',1);
+DROP TABLE IF EXISTS "taxonomies";
+CREATE TABLE "taxonomies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime);
+INSERT INTO "taxonomies" VALUES(1,'Articulos del Hogar','2011-11-30 17:33:12.765625','2011-11-30 17:33:12.765625');
+INSERT INTO "taxonomies" VALUES(2,'Productos Electronicos','2011-12-03 05:16:35.203125','2011-12-03 05:16:35.203125');
+INSERT INTO "taxonomies" VALUES(3,'Equipos Computacion','2011-12-03 21:32:08.312500','2011-12-03 21:32:08.312500');
+DROP TABLE IF EXISTS "taxons";
+CREATE TABLE "taxons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "taxonomy_id" integer NOT NULL, "parent_id" integer, "position" integer DEFAULT 0, "name" varchar(255) NOT NULL, "created_at" datetime, "updated_at" datetime, "permalink" varchar(255), "lft" integer, "rgt" integer, "icon_file_name" varchar(255), "icon_content_type" varchar(255), "icon_file_size" integer, "icon_updated_at" datetime, "description" text);
+INSERT INTO "taxons" VALUES(1,1,NULL,0,'Articulos del Hogar','2011-11-30 17:33:13.406250','2011-11-30 17:33:13.406250','arthogar',1,26,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO "taxons" VALUES(2,1,1,0,'Electrodomésticos','2011-11-30 17:34:21.234375','2011-11-30 20:43:21.062500','arthogar/electrodomesticos',2,25,NULL,NULL,NULL,NULL,'');
+INSERT INTO "taxons" VALUES(3,1,2,0,'Dispensador de Agua','2011-11-30 17:34:57.937500','2011-11-30 20:43:58.375000','arthogar/electrodomesticos/dispensador-agua',3,8,NULL,NULL,NULL,NULL,'');
+INSERT INTO "taxons" VALUES(4,1,2,1,'Horno Tostador','2011-11-30 17:35:33.843750','2011-11-30 20:48:55.781250','arthogar/electrodomesticos/horno-tostador',9,10,NULL,NULL,NULL,NULL,'');
+INSERT INTO "taxons" VALUES(5,1,2,2,'Microondas','2011-11-30 17:36:23.296875','2011-11-30 20:43:22.515625','arthogar/electrodomesticos/microondas',11,12,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO "taxons" VALUES(7,1,3,0,'Con alacena','2011-11-30 17:36:57.125000','2011-11-30 20:43:58.578125','arthogar/electrodomesticos/dispensador-agua/con-alacena',4,5,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO "taxons" VALUES(8,1,3,1,'Con nevera','2011-11-30 17:37:26.437500','2011-11-30 20:43:59.046875','arthogar/electrodomesticos/dispensador-agua/con-nevera',6,7,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO "taxons" VALUES(9,1,2,3,'Ventiladores','2011-11-30 17:38:10.375000','2011-11-30 20:46:52.984375','arthogar/electrodomesticos/ventiladores',13,24,NULL,NULL,NULL,NULL,'');
+INSERT INTO "taxons" VALUES(11,1,9,0,'Ventiladores Cuadrados','2011-11-30 17:40:19.453125','2011-12-02 22:48:48.171875','arthogar/electrodomesticos/ventiladores/cuadrado',14,15,NULL,NULL,NULL,NULL,'');
+INSERT INTO "taxons" VALUES(12,1,9,1,'Ventilador de Escritorio','2011-11-30 17:40:25.093750','2011-11-30 20:48:19.484375','arthogar/electrodomesticos/ventiladores/de-escritorio',16,17,NULL,NULL,NULL,NULL,'');
+INSERT INTO "taxons" VALUES(13,1,9,2,'Ventilador de Mesa','2011-11-30 17:41:49.968750','2011-12-03 00:53:39.109375','arthogar/electrodomesticos/ventiladores/ventilador-de-mesa',18,19,NULL,NULL,NULL,NULL,'');
+INSERT INTO "taxons" VALUES(14,1,9,3,'Ventilador de Pedestal','2011-11-30 17:42:24.671875','2011-12-03 00:49:44.687500','arthogar/electrodomesticos/ventiladores/ventilador-de-pedestal',20,21,NULL,NULL,NULL,NULL,'');
+INSERT INTO "taxons" VALUES(15,1,9,4,'Ventilador de Torre','2011-11-30 17:42:52.031250','2011-12-03 00:48:30.515625','arthogar/electrodomesticos/ventiladores/ventilador-de-torre',22,23,NULL,NULL,NULL,NULL,'');
+INSERT INTO "taxons" VALUES(16,2,NULL,0,'Productos Electronicos','2011-12-03 05:16:35.343750','2011-12-03 05:16:35.343750','prodelectro',27,36,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO "taxons" VALUES(17,2,16,0,'Televisores','2011-12-03 05:17:32.484375','2011-12-03 05:17:32.484375','prodelectro/televisores',28,35,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO "taxons" VALUES(18,2,17,0,'LCD','2011-12-03 05:18:44.359375','2011-12-03 05:19:52.500000','prodelectro/televisores/lcd',29,30,NULL,NULL,NULL,NULL,'');
+INSERT INTO "taxons" VALUES(19,2,17,1,'LED','2011-12-03 05:18:53.359375','2011-12-03 05:20:41.875000','prodelectro/televisores/led',31,32,NULL,NULL,NULL,NULL,'');
+INSERT INTO "taxons" VALUES(21,2,17,2,'HD','2011-12-03 13:28:30.250000','2011-12-03 13:28:30.250000','prodelectro/televisores/hd',33,34,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO "taxons" VALUES(22,3,NULL,0,'Equipos Computacion','2011-12-03 21:32:08.656250','2011-12-03 21:32:08.656250','comp',37,40,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO "taxons" VALUES(23,3,22,0,'Monitores','2011-12-03 21:32:42.468750','2011-12-03 21:34:10.515625','comp/monitores',38,39,NULL,NULL,NULL,NULL,'');
+DROP TABLE IF EXISTS "tokenized_permissions";
+CREATE TABLE "tokenized_permissions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "permissable_id" integer, "permissable_type" varchar(255), "token" varchar(255), "created_at" datetime, "updated_at" datetime);
+INSERT INTO "tokenized_permissions" VALUES(1,1,'Order','60cafa66ca7e4a93','2011-11-27 12:49:40.296875','2011-11-27 12:49:40.296875');
+INSERT INTO "tokenized_permissions" VALUES(2,2,'Order','d6c00aa3d717f1ee','2011-12-01 01:18:37.000000','2011-12-01 01:18:37.000000');
+INSERT INTO "tokenized_permissions" VALUES(3,3,'Order','e8768307ef6448c8','2011-12-01 22:18:25.343750','2011-12-01 22:18:25.343750');
+INSERT INTO "tokenized_permissions" VALUES(4,4,'Order','82c6fdba7ee69d07','2011-12-03 01:50:24.781250','2011-12-03 01:50:24.781250');
+INSERT INTO "tokenized_permissions" VALUES(5,5,'Order','6a53c068ae43bc75','2011-12-03 03:55:05.734375','2011-12-03 03:55:05.734375');
+INSERT INTO "tokenized_permissions" VALUES(6,6,'Order','0ea69f7ceeae4831','2011-12-07 16:00:06.734375','2011-12-07 16:00:06.734375');
+INSERT INTO "tokenized_permissions" VALUES(7,7,'Order','d6eb86decc7e326e','2011-12-08 15:43:20.421875','2011-12-08 15:43:20.421875');
+INSERT INTO "tokenized_permissions" VALUES(8,8,'Order','c678df61811923f7','2011-12-08 19:04:34.859375','2011-12-08 19:04:34.859375');
+INSERT INTO "tokenized_permissions" VALUES(9,9,'Order','70296261ae9aa229','2011-12-08 19:22:14.140625','2011-12-08 19:22:14.140625');
+INSERT INTO "tokenized_permissions" VALUES(10,10,'Order','af78358719982754','2011-12-09 01:40:10.125000','2011-12-09 01:40:10.125000');
+INSERT INTO "tokenized_permissions" VALUES(11,11,'Order','20f30e07fb4235b3','2011-12-09 01:47:09.796875','2011-12-09 01:47:09.796875');
+INSERT INTO "tokenized_permissions" VALUES(12,12,'Order','795f43786a39b5cb','2011-12-10 02:19:23.390625','2011-12-10 02:19:23.390625');
+INSERT INTO "tokenized_permissions" VALUES(13,13,'Order','6796473cb8714e66','2011-12-10 14:50:00.906250','2011-12-10 14:50:00.906250');
+INSERT INTO "tokenized_permissions" VALUES(14,14,'Order','a046fd57a3603d3d','2011-12-27 13:04:42.022089','2011-12-27 13:04:42.022089');
+INSERT INTO "tokenized_permissions" VALUES(15,15,'Order','f0cdb5d43341b12e','2011-12-27 13:27:12.313639','2011-12-27 13:27:12.313639');
+INSERT INTO "tokenized_permissions" VALUES(16,16,'Order','79dddbe441acd121','2011-12-27 14:48:03.952805','2011-12-27 14:48:03.952805');
+INSERT INTO "tokenized_permissions" VALUES(17,17,'Order','a49f5dacca40ba8b','2011-12-27 15:41:08.122456','2011-12-27 15:41:08.122456');
+INSERT INTO "tokenized_permissions" VALUES(18,18,'Order','34e00e58b629bda0','2011-12-27 15:57:20.219245','2011-12-27 15:57:20.219245');
+DROP TABLE IF EXISTS "trackers";
+CREATE TABLE "trackers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "environment" varchar(255), "analytics_id" varchar(255), "active" boolean DEFAULT 't', "created_at" datetime, "updated_at" datetime);
+DROP TABLE IF EXISTS "users";
+CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "password_salt" varchar(128), "remember_token" varchar(255), "created_at" datetime, "updated_at" datetime, "persistence_token" varchar(255), "reset_password_token" varchar(255), "perishable_token" varchar(255), "sign_in_count" integer DEFAULT 0 NOT NULL, "failed_attempts" integer DEFAULT 0 NOT NULL, "last_request_at" datetime, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "login" varchar(255), "ship_address_id" integer, "bill_address_id" integer, "authentication_token" varchar(255), "unlock_token" varchar(255), "locked_at" datetime, "remember_created_at" datetime, "api_key" varchar(40), "vendor_id" integer);
+INSERT INTO "users" VALUES(1,'PVPTienda@gmail.com','0b7960e40ffc4512a7744815d4d8f02f6fb59168150389be41fc8a3929ea63b9cbc572493a6f1fe01d2e8ca8e2228006a1b5b23bd0e6ac6129ac2242bc9927e8','dNC7dcF5AVy3Yz3py9t6',NULL,'2011-11-26 18:35:26.750000','2012-01-13 04:47:09.515625',NULL,NULL,NULL,49,0,NULL,'2012-01-13 04:47:09.500000','2012-01-13 03:02:14.203125','127.0.0.1','127.0.0.1','PVPTienda@gmail.com',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO "users" VALUES(2,'I8yDTxJf89-Zp8rLPpfr@example.net','24e75e24d6540083a713b2b20800d5a3231ff79db6bdb32f29779b38cdce302efc04e1ce28d1ecb2c202fd4690cb8621e44da113c679a262c6436c741686000c','tPTGty7JCp9VRTgdPhJy',NULL,'2011-11-27 12:49:39.546875','2011-11-27 12:49:39.546875','I8yDTxJf89-Zp8rLPpfr',NULL,NULL,0,0,NULL,NULL,NULL,NULL,NULL,'I8yDTxJf89-Zp8rLPpfr@example.net',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO "users" VALUES(3,'cufgzs_C8EoKQ1d7MWia@example.net','6b74d157294a0d07ece1b7cd7573809054d4ac010a2222e3c36e8b7462db348fb3ed2bd42b46c95ccca980a8fe7472145495c1dcd68b722f31e104cd706fcedf','KVLtsGqoPTpJRZhtgsph',NULL,'2011-12-01 22:18:25.015625','2011-12-01 22:18:25.015625','cufgzs_C8EoKQ1d7MWia',NULL,NULL,0,0,NULL,NULL,NULL,NULL,NULL,'cufgzs_C8EoKQ1d7MWia@example.net',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+DROP TABLE IF EXISTS "variants";
+CREATE TABLE "variants" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "sku" varchar(255) DEFAULT '' NOT NULL, "price" decimal(8,2) NOT NULL, "weight" decimal(8,2), "height" decimal(8,2), "width" decimal(8,2), "depth" decimal(8,2), "deleted_at" datetime, "is_master" boolean DEFAULT 'f', "count_on_hand" integer DEFAULT 0 NOT NULL, "cost_price" decimal(8,2) DEFAULT NULL, "position" integer);
+INSERT INTO "variants" VALUES(1,1,'EQC153MBHS',1790.25,NULL,NULL,NULL,NULL,NULL,'t',10,1521.71,NULL);
+INSERT INTO "variants" VALUES(2,2,'EQC153MBHW',1648.73,NULL,NULL,NULL,NULL,NULL,'t',0,1401.42,NULL);
+INSERT INTO "variants" VALUES(3,3,'EQL153MBHS',1945.93,NULL,NULL,NULL,NULL,NULL,'t',10,1654.04,NULL);
+INSERT INTO "variants" VALUES(4,4,'COPY OF EQC153MBHS',1790,NULL,NULL,NULL,NULL,NULL,'t',10,1521.71,NULL);
+INSERT INTO "variants" VALUES(5,5,'COPY OF EQL153MBHS',1945.93,NULL,NULL,NULL,NULL,NULL,'t',10,1654.04,NULL);
+INSERT INTO "variants" VALUES(6,6,'EQL153MBHW',1802.64,NULL,NULL,NULL,NULL,NULL,'t',9,1532.24,NULL);
+INSERT INTO "variants" VALUES(7,7,'BDFC151B',1688,NULL,NULL,NULL,NULL,NULL,'t',10,1435.33,NULL);
+INSERT INTO "variants" VALUES(8,8,'BDTRO420',505,NULL,NULL,NULL,NULL,NULL,'t',8,42954,NULL);
+INSERT INTO "variants" VALUES(9,9,'BDTRO965',566,NULL,NULL,NULL,NULL,NULL,'t',10,481.78,NULL);
+INSERT INTO "variants" VALUES(10,10,'BDTRO4051',720,13.9,11.61,19.69,13.7,NULL,'t',10,612.38,NULL);
+INSERT INTO "variants" VALUES(11,11,'BDTRO500',966,NULL,NULL,NULL,NULL,NULL,'t',-5,821.35,NULL);
+INSERT INTO "variants" VALUES(12,12,'BDCTO650',1350,NULL,36.5,43,57,NULL,'t',10,1147.85,NULL);
+INSERT INTO "variants" VALUES(13,13,'BDCTO6302',1642,NULL,NULL,NULL,NULL,NULL,'t',10,1396.15,NULL);
+INSERT INTO "variants" VALUES(14,14,'BDFC151B',0,NULL,NULL,NULL,NULL,NULL,'t',0,NULL,NULL);
+INSERT INTO "variants" VALUES(15,15,'TU 01',202.74,NULL,NULL,NULL,NULL,NULL,'t',0,172.32,NULL);
+INSERT INTO "variants" VALUES(16,16,'TU41',35479,NULL,NULL,NULL,NULL,NULL,'t',0,NULL,NULL);
+INSERT INTO "variants" VALUES(17,17,'TU41',354,NULL,NULL,NULL,NULL,NULL,'t',0,301.57,NULL);
+INSERT INTO "variants" VALUES(18,18,'VM22',275,NULL,NULL,NULL,NULL,NULL,'t',9,233.87,NULL);
+INSERT INTO "variants" VALUES(19,19,'VM37',423,NULL,NULL,NULL,NULL,NULL,'t',10,360.04,NULL);
+INSERT INTO "variants" VALUES(20,20,'VP10',383,NULL,NULL,NULL,NULL,NULL,'t',10,326.19,NULL);
+INSERT INTO "variants" VALUES(21,21,'VTL01',1029,NULL,NULL,NULL,NULL,NULL,'t',10,875.47,NULL);
+INSERT INTO "variants" VALUES(22,22,'TFV10',754,NULL,NULL,NULL,NULL,NULL,'t',10,641.47,NULL);
+INSERT INTO "variants" VALUES(23,23,'DFV10',331,NULL,NULL,NULL,NULL,NULL,'t',10,281.57,NULL);
+INSERT INTO "variants" VALUES(24,24,'DFV20',419,NULL,NULL,NULL,NULL,NULL,'t',10,356.96,NULL);
+INSERT INTO "variants" VALUES(25,25,'BFV10',485.02,NULL,NULL,NULL,NULL,NULL,'t',10,412.26,NULL);
+INSERT INTO "variants" VALUES(26,26,'SFV10',613.51,NULL,NULL,NULL,NULL,NULL,'t',10,521.48,NULL);
+INSERT INTO "variants" VALUES(27,1,'EQC153MBHW',1648.73,8,8,8,8,NULL,'f',10,1401.12,2);
+INSERT INTO "variants" VALUES(28,1,'EQC153MBHS',1790.25,NULL,NULL,NULL,NULL,NULL,'f',-20,1521.71,1);
+INSERT INTO "variants" VALUES(29,27,'EMDA17S3MJ',730.61,NULL,NULL,NULL,NULL,NULL,'t',0,621.02,NULL);
+INSERT INTO "variants" VALUES(30,27,'EMDA17S3MJW',730.61,NULL,NULL,NULL,NULL,NULL,'f',10,621.02,NULL);
+INSERT INTO "variants" VALUES(31,27,'EMDA17S3MJM',794.29,NULL,NULL,NULL,NULL,NULL,'f',10,675.15,NULL);
+INSERT INTO "variants" VALUES(32,28,'EMDA23G3MJ',1006.57,NULL,NULL,NULL,NULL,NULL,'t',0,855.59,NULL);
+INSERT INTO "variants" VALUES(33,28,'EMDA23G3MJW',1006.57,NULL,NULL,NULL,NULL,NULL,'f',10,855.59,NULL);
+INSERT INTO "variants" VALUES(34,28,'EMDA23G3MJM',1077.34,NULL,NULL,NULL,NULL,NULL,'f',10,915.74,NULL);
+INSERT INTO "variants" VALUES(35,29,'LE24H037',2927.5,NULL,NULL,NULL,NULL,NULL,'t',8,2786,NULL);
+INSERT INTO "variants" VALUES(36,30,'LC27H030',4100,NULL,NULL,NULL,NULL,NULL,'t',20,3906,NULL);
+INSERT INTO "variants" VALUES(37,31,'E1621SW',1070,NULL,NULL,NULL,NULL,NULL,'t',20,909.72,NULL);
+INSERT INTO "variants" VALUES(38,32,'EMDA23G3MJW',1006.57,NULL,NULL,NULL,NULL,NULL,'t',0,NULL,NULL);
+INSERT INTO "variants" VALUES(39,33,'EMDA28G3MJ',1234.78,NULL,NULL,NULL,NULL,NULL,'t',0,1049.56,NULL);
+INSERT INTO "variants" VALUES(40,33,'EMDA28G3MJW',1234.78,NULL,NULL,NULL,NULL,NULL,'f',10,1049.56,NULL);
+INSERT INTO "variants" VALUES(41,33,'EMDA28G3MJM',1335.61,NULL,NULL,NULL,NULL,NULL,'f',10,1135.27,NULL);
+INSERT INTO "variants" VALUES(42,34,'EMMN311D2SM',1733,NULL,NULL,NULL,NULL,NULL,'t',10,1473.6,NULL);
+INSERT INTO "variants" VALUES(43,35,'EFA091M1PB',373.26,NULL,NULL,NULL,NULL,NULL,'t',10,317.27,NULL);
+INSERT INTO "variants" VALUES(44,36,'EFD141MSP',686.38,NULL,NULL,NULL,NULL,NULL,'t',0,583.42,NULL);
+INSERT INTO "variants" VALUES(45,36,'EFD141MSPW',686,NULL,NULL,NULL,NULL,'2011-12-04 04:50:45.906250','f',10,583,NULL);
+INSERT INTO "variants" VALUES(46,36,'EFD141MSPB',686.38,NULL,NULL,NULL,NULL,'2011-12-04 04:50:46.078125','f',10,583.42,NULL);
+INSERT INTO "variants" VALUES(47,37,'EFA091M1P',373.26,NULL,NULL,NULL,NULL,NULL,'t',0,317.27,NULL);
+INSERT INTO "variants" VALUES(48,37,'EFA091M1PW',373,NULL,NULL,NULL,NULL,'2011-12-04 05:05:49.062500','f',10,317.27,2);
+INSERT INTO "variants" VALUES(49,37,'EFA091M1PW',373.26,NULL,NULL,NULL,NULL,'2011-12-04 05:05:48.890625','f',10,317.27,1);
+INSERT INTO "variants" VALUES(50,38,'EFD141MSP',686.38,NULL,NULL,NULL,NULL,NULL,'t',10,583.42,NULL);
+INSERT INTO "variants" VALUES(51,36,'EFD141MSPW',686.38,NULL,NULL,NULL,NULL,NULL,'f',10,583.42,NULL);
+INSERT INTO "variants" VALUES(52,36,'EFD141MSPB',686.38,NULL,NULL,NULL,NULL,NULL,'f',10,583.42,NULL);
+INSERT INTO "variants" VALUES(53,39,'EMX171D1PM',794.29,NULL,NULL,NULL,NULL,NULL,'t',10,675.15,NULL);
+DROP TABLE IF EXISTS "vendors";
+CREATE TABLE "vendors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(45), "razon_social" varchar(255), "rif" varchar(255), "direccion" varchar(120), "direnvio" varchar(120), "telefono1" varchar(24), "email" varchar(50), "contacto" varchar(45), "created_at" datetime, "updated_at" datetime, "user_id" integer);
+DROP TABLE IF EXISTS "zone_members";
+CREATE TABLE "zone_members" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "zone_id" integer, "zoneable_id" integer, "zoneable_type" varchar(255), "created_at" datetime, "updated_at" datetime);
+INSERT INTO "zone_members" VALUES(1,1,1,'Country','2011-12-01 22:09:39.625000','2011-12-01 22:09:39.625000');
+DROP TABLE IF EXISTS "zones";
+CREATE TABLE "zones" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime);
+INSERT INTO "zones" VALUES(1,'Venezuela','Venezuela','2011-11-26 19:54:12.906250','2011-11-26 19:54:12.906250');

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/48/app/views/order_mailer
+END
+notific_usuario_email.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/48/app/views/order_mailer/notific_usuario_email.html.erb
+END
+confirm_usuario_email.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/48/app/views/order_mailer/confirm_usuario_email.html.erb
+END
+notific_vendor_email.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/48/app/views/order_mailer/notific_vendor_email.html.erb
+END
+cancel_usuario_email.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/48/app/views/order_mailer/cancel_usuario_email.html.erb
+END

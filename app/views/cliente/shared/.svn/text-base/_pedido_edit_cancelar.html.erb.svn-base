@@ -1,0 +1,5 @@
+<p class="form-buttons" >
+    <%= button @order.complete? ? t(:update) : t(:continue) %>
+    <%= t(:or) %> <%= link_to t('actions.cancel'), "/#{session[:rol_usuario]}/orders" %>
+    </p>
+

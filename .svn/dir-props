@@ -1,0 +1,10 @@
+K 10
+svn:ignore
+V 42
+\tmp\*
+\nbproject\*
+\public\*
+*.lock
+.git
+
+END

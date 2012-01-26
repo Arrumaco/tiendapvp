@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/51/app/views/kaminari
+END
+_gap.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/50/app/views/kaminari/_gap.html.erb
+END
+_prev_page.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/50/app/views/kaminari/_prev_page.html.erb
+END
+_next_page.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/50/app/views/kaminari/_next_page.html.erb
+END
+_page.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/50/app/views/kaminari/_page.html.erb
+END
+_last_page.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/50/app/views/kaminari/_last_page.html.erb
+END
+_first_page.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/50/app/views/kaminari/_first_page.html.erb
+END
+_paginator.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/51/app/views/kaminari/_paginator.html.erb
+END

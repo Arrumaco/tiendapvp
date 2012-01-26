@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/41/test/fixtures
+END
+vendors.yml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/14/test/fixtures/vendors.yml
+END
+.gitkeep
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/1/test/fixtures/.gitkeep
+END
+clientes.yml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/2/test/fixtures/clientes.yml
+END
+deposito_bancos.yml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/tiendapvp~source-code-tiendapvp/!svn/ver/41/test/fixtures/deposito_bancos.yml
+END

@@ -1,0 +1,27 @@
+<div id="logo" data-hook>
+  <% if current_user %>
+    <%= t(:logged_in_as) %> <%=  current_user.email %>
+  <%  else %>
+    <%= logo %>
+    <%= link_to t(:log_in), login_path %>
+  <% end %>
+</div>
+<div id="customer-credentials">
+  <% if current_user.has_role?('admin') %>
+    <p>
+    <%= f.label :cliente_id, t(:customer) %><br />
+    <%= select("user", "cliente_id", 
+               Cliente.all.collect {|p| [ p.nombre, p.id ] }, { :selected =>  @user.cliente_id, :include_blank => true}) %>
+    </p>
+    <p>
+    <%= f.label :vendor_id, t(:vendor) %><br />
+    <%= select("user", "vendor_id", 
+               Vendor.all.collect {|p| [ p.nombre, p.id ] }, { :selected =>  @user.vendor_id, :include_blank => true}) %>
+    </p>
+  <% else %>
+    <%= hidden_field_tag :cliente_id, current_user.cliente_id %>
+    <%= hidden_field_tag :vendor_id, current_user.vendor_id %>
+  <% end %>
+
+</div>
+

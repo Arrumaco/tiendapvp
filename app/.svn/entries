@@ -1,0 +1,49 @@
+10
+
+dir
+54
+https://svn.kenai.com/svn/tiendapvp~source-code-tiendapvp/app
+https://svn.kenai.com/svn/tiendapvp~source-code-tiendapvp
+
+
+
+2012-01-19T13:38:20.324356Z
+54
+qqaa
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+1d2f0b84-94e8-6abf-cc1c-e742b3fb27d3
+
+assets
+dir
+
+helpers
+dir
+
+overrides
+dir
+
+models
+dir
+
+controllers
+dir
+
+mailers
+dir
+
+views
+dir
+

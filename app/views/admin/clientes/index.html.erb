@@ -1,0 +1,54 @@
+<div class="toolbar" data-hook="toolbar">
+  <ul class="actions">
+    <li>
+      <p><%= button_link_to t(:new_cliente), new_object_url, :icon => 'add', :id => 'admin_new_cliente_link' %></p>
+    </li>
+  </ul>
+  <br class="clear" />
+</div>
+
+<h1><%= t(:listing_clientes) %></h1>
+
+<table class="index" id="listing_clientes" data-hook>
+  <thead>
+    <tr data-hook="admin_clientes_index_headers">
+      <th><%= sort_link @search, :nombre, t(:cliente), {}, {:title => 'clientes_nombre_title'} %></th>
+      <th><%= t(:rif) %></th>
+      <th><%= t(:main_contact) %></th>
+      <th data-hook="admin_clientes_index_header_actions"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clientes.each do |cliente|%>
+      <tr id="<%= dom_id cliente %>" data-hook="admin_clientes_index_rows">
+        <td style="width:280px" class='cliente_nombre'><%=link_to cliente.nombre, object_url(cliente) %></td>
+        <td style="width:160px" class='cliente_rif'> <%= cliente.rif %></td>
+        <td style="width:230px" class='cliente_contacto'> <%= cliente.user.email %></td>
+        <td data-hook="admin_clientes_index_row_actions">
+          <%= link_to_edit cliente, :class => 'edit' %> &nbsp;
+          <%= link_to_delete cliente %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @clientes %>
+
+<% content_for :sidebar do %>
+  <div class="box" data-hook="admin_clientes_index_search">
+    <h3><%= t(:search) %></h3>
+    <% @search = Cliente.search %>
+    <%= form_for [:admin, @search] do |f| %>
+      <p>
+        <%= t(:nombre) %><br />
+        <%= f.text_field :nombre_contains, :size =>18 %>
+      </p>
+      <div data-hook="admin_clientes_index_search_buttons">
+        <p><%= button t(:search) %></p>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+

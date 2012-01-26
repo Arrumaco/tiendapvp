@@ -1,0 +1,4 @@
+<div class="toolbar order-links" >
+  <%= button_link_to t(:cancel), "/#{session[:rol_usuario]}/orders/#{@order.number}/fire?e=cancel", :icon => 'delete', :confirm => t(:are_you_sure) if @order.can_cancel? %>
+  <%= button_link_to t(:edit), "/#{session[:rol_usuario]}/orders/#{@order.number}/edit", :icon => 'edit' %>
+</div>

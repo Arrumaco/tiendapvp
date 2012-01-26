@@ -1,0 +1,18 @@
+<p>Estimado Proveedor </p>
+ 
+<p>Por favor, revise y verifique la disponibilidad, de acuerdo a nuestro convenio,  <br />
+del producto detallado a continuación para atender la orden indicada... </p>
+
+=========================================================== <br />
+Detalle de la solicitud <br />
+Orden Número <%= @orden.number %> <br />
+=========================================================== <br />
+<% @lineas.each do |item| %>
+  <%=item.variant.sku %> <%=item.variant.product.name%> <%= item.variant.options_text -%>   <br />
+  Cantidad Solicitada: <%=item.quantity%> <br />
+<% end %>
+=========================================================== <br />
+
+Por favor, confirmar la disponibilidad para el despacho..<br />
+
+Gracias !!!<br />
