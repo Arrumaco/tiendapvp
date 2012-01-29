@@ -5,3 +5,6 @@ tmp/
 .sass-cache/
 SQL/
 *.cdr
+*.svn*
+.svn
+public/assets

@@ -51,6 +51,8 @@ class Ability
         order.user == user || order.token && token == order.token
       end
       can :create, Order
+      can :read, Order
+      can :populate, Order
       #############################
       can :read, Product
       can :index, Product

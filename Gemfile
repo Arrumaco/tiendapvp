@@ -6,6 +6,8 @@ gem 'jquery-rails'
 
 
 gem 'mongrel', '1.2.0.pre2'
+## Pasandonos a thin (recomendado por heroku)
+#gem 'thin'
 
 gem 'rake'
 
