@@ -1,3 +1,0 @@
-<p class="form-buttons" data-hook="buttons">
-  <%= button t(:update) %>
-</p>

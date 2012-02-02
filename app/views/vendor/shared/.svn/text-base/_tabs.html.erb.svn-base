@@ -1,5 +1,0 @@
-Vendor Tabs
-<%= tab :overview, :route => :vendor %>
-<%= tab :orders, :payments, :creditcard_payments, :shipments, :creditcards, :return_authorizations %>
-<%= tab :users %>
-<%= tab :products , :option_types, :properties, :prototypes, :variants, :product_properties, :product_groups, :taxons %>

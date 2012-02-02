@@ -1,1 +1,0 @@
-<%= button_link_to t(:resend), "/#{session[:rol_usuario]}/orders/#{@order.number}/resend", :method => :post, :icon => 'send-email' if @order.user %>

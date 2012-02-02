@@ -1,1 +1,0 @@
-<%= button_link_to t(:new_order), "/#{session[:rol_usuario]}/orders/new", :icon => 'add', :id => 'admin_new_order' %>
