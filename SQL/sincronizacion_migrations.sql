@@ -1,3 +1,5 @@
+
+
 DROP TABLE IF EXISTS "schema_migrations";
 CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL);
 INSERT INTO "schema_migrations" VALUES('20111012194305');
