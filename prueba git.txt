@@ -1,0 +1,12 @@
+config/database.yml
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
+.sass-cache/
+SQL/
+*.cdr
+*.svn*
+.svn/*
+*/.svn/*
+public/assets
