@@ -14,8 +14,8 @@ TiendaPVP::Application.routes.draw do
   match 'deposito_bancos/:id/registro_deposito' => 'deposito_bancos#registro_deposito', :as => 'registro_deposito'
   match 'deposito_bancos/:id/actualiza_deposito' => 'deposito_bancos#actualiza_deposito', :as => 'actualiza_deposito'
   
-  match 'confirmacion_despachos/:id/registro_despacho' => 'confirmacion_despachos#registro_despacho', :as => 'registro_despacho'
-  match 'confirmacion_despachos/:id/actualiza_despacho' => 'confirmacion_despachos#actualiza_despacho', :as => 'actualiza_despacho'
+  match 'registro_correo/:id/confirma_usuario' => 'registro_correo#confirma_usuario', :as => 'confirma_usuario'
+  match 'registro_correo/:id/regsitra_usuario/:email' => 'registro_correo#regsitra_usuario', :as => 'confirma_usuario'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

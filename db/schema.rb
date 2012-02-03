@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120115175537) do
+ActiveRecord::Schema.define(:version => 20120126163727) do
 
   create_table "activators", :force => true do |t|
     t.string   "description"
@@ -181,9 +181,9 @@ ActiveRecord::Schema.define(:version => 20120115175537) do
     t.decimal  "price",               :precision => 8, :scale => 2,                :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "cantidad_despachada",                               :default => 0
-    t.date     "deposito_fecha"
-    t.date     "cancelacion_fecha"
+    t.integer  "despacho_confirmado", :default => 0
+    t.date     "fecha_despacho_confirmado"
+    t.integer  "cantidad_original", :default => 0
   end
 
   create_table "log_entries", :force => true do |t|

@@ -43,3 +43,8 @@ Deface::Override.new(:virtual_path => "admin/shared/_order_tabs",
                      :replace => "[data-hook='admin_order_tabs']",
                      :partial => "../views/cliente/shared/pedido_detalle",
                      :disabled => false)
+Deface::Override.new(:virtual_path => "admin/orders/_line_item",
+                     :name => "admin_orders_forms10", 
+                     :replace => "[data-hook='admin_order_form_line_item_row']",
+                     :partial => "../views/admin/orders/order_line_item",
+                     :disabled => false)					 

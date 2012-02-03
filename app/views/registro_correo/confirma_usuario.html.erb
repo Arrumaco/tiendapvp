@@ -1,0 +1,12 @@
+<div data-hook="confirma_usuario_form_header">
+  <h1><%= t(:confirmacion_usuario) %></h1>
+</div>
+
+<div data-hook="confirma_usuario_form">
+  <%= form_tag :url => {:action => 'confirma_usuario_2' } do |f|   %>
+  <%= render :partial => 'form_confirma', :locals => { :f => f } %>
+  <div data-hook="confirma_usuario_form_button">
+    <%= render :partial => 'edit_resource_links' %>
+  </div>
+<% end %>
+</div>
