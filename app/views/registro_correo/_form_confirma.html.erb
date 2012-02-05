@@ -1,12 +1,8 @@
 <div class="clearfix">
   <div class="left" data-hook="confirma_usuario_form_left">
-    <%= f.field_container :email do %>
-      <%= f.label :correo_electronico, t(:correo_electronico) %> <span class="required">*</span><br />
-      <%= f.email_field_tag :email, :class => 'fullwidth title'  %>
-    <% end %>
-    <%= f.field_container :organizacion do %>
-      <%= f.label :organizacion, t(:organizacion) %><br />
+      <%= label_tag :correo_electronico, t(:correo_electronico) %> <span class="required">*</span><br />
+      <%= email_field_tag :email, nil, :class => 'fullwidth title'  %><br /> 
+      <%= label_tag :organizacion, t(:organizacion) %><br />
       <%= @cliente.nombre %>
-    <% end %>
   </div>
 </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120126163727) do
+ActiveRecord::Schema.define(:version => 20120204125012) do
 
   create_table "activators", :force => true do |t|
     t.string   "description"
@@ -40,6 +40,9 @@ ActiveRecord::Schema.define(:version => 20120126163727) do
     t.string   "alternative_phone"
   end
 
+  add_index "addresses", ["firstname"], :name => "index_addresses_on_firstname"
+  add_index "addresses", ["lastname"], :name => "index_addresses_on_lastname"
+
   create_table "adjustments", :force => true do |t|
     t.integer  "order_id"
     t.decimal  "amount"
@@ -55,6 +58,8 @@ ActiveRecord::Schema.define(:version => 20120126163727) do
     t.boolean  "eligible",        :default => true
   end
 
+  add_index "adjustments", ["order_id"], :name => "index_adjustments_on_order_id"
+
   create_table "assets", :force => true do |t|
     t.integer  "viewable_id"
     t.string   "viewable_type",           :limit => 50
@@ -68,6 +73,9 @@ ActiveRecord::Schema.define(:version => 20120126163727) do
     t.integer  "attachment_height"
     t.text     "alt"
   end
+
+  add_index "assets", ["viewable_id"], :name => "index_assets_on_viewable_id"
+  add_index "assets", ["viewable_type", "type"], :name => "index_assets_on_viewable_type_and_type"
 
   create_table "calculators", :force => true do |t|
     t.string   "type"
@@ -88,6 +96,9 @@ ActiveRecord::Schema.define(:version => 20120126163727) do
     t.datetime "updated_at"
   end
 
+  add_index "checkouts", ["bill_address_id"], :name => "index_checkouts_on_bill_address_id"
+  add_index "checkouts", ["order_id"], :name => "index_checkouts_on_order_id"
+
   create_table "clientes", :force => true do |t|
     t.string   "nombre"
     t.string   "razon_social"
@@ -103,6 +114,8 @@ ActiveRecord::Schema.define(:version => 20120126163727) do
     t.datetime "updated_at"
     t.string   "type",       :limit => 50
   end
+
+  add_index "configurations", ["name", "type"], :name => "index_configurations_on_name_and_type"
 
   create_table "countries", :force => true do |t|
     t.string  "iso_name"
@@ -174,17 +187,24 @@ ActiveRecord::Schema.define(:version => 20120126163727) do
     t.integer  "return_authorization_id"
   end
 
+  add_index "inventory_units", ["order_id"], :name => "index_inventory_units_on_order_id"
+  add_index "inventory_units", ["shipment_id"], :name => "index_inventory_units_on_shipment_id"
+  add_index "inventory_units", ["variant_id"], :name => "index_inventory_units_on_variant_id"
+
   create_table "line_items", :force => true do |t|
     t.integer  "order_id"
     t.integer  "variant_id"
-    t.integer  "quantity",                                                         :null => false
-    t.decimal  "price",               :precision => 8, :scale => 2,                :null => false
+    t.integer  "quantity",                                                               :null => false
+    t.decimal  "price",                     :precision => 8, :scale => 2,                :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "despacho_confirmado", :default => 0
+    t.integer  "despacho_confirmado",                                     :default => 0
     t.date     "fecha_despacho_confirmado"
-    t.integer  "cantidad_original", :default => 0
+    t.integer  "cantidad_original",                                       :default => 0
   end
+
+  add_index "line_items", ["order_id"], :name => "index_line_items_on_order_id"
+  add_index "line_items", ["variant_id"], :name => "index_line_items_on_variant_id"
 
   create_table "log_entries", :force => true do |t|
     t.integer  "source_id"
@@ -232,6 +252,9 @@ ActiveRecord::Schema.define(:version => 20120126163727) do
     t.integer "option_value_id"
   end
 
+  add_index "option_values_variants", ["variant_id", "option_value_id"], :name => "index_option_values_variants_on_variant_id_and_option_value_id"
+  add_index "option_values_variants", ["variant_id"], :name => "index_option_values_variants_on_variant_id"
+
   create_table "orders", :force => true do |t|
     t.integer  "user_id"
     t.string   "number",               :limit => 15
@@ -253,6 +276,8 @@ ActiveRecord::Schema.define(:version => 20120126163727) do
     t.text     "special_instructions"
     t.integer  "cliente_id"
   end
+
+  add_index "orders", ["number"], :name => "index_orders_on_number"
 
   create_table "payment_methods", :force => true do |t|
     t.string   "type"
@@ -283,20 +308,25 @@ ActiveRecord::Schema.define(:version => 20120126163727) do
 
   create_table "preferences", :force => true do |t|
     t.string   "name",       :limit => 100, :null => false
-    t.integer  "owner_id",   :limit => 30,  :null => false
+    t.integer  "owner_id",                  :null => false
     t.string   "owner_type", :limit => 50,  :null => false
     t.integer  "group_id"
     t.string   "group_type", :limit => 50
-    t.text     "value",      :limit => 255
+    t.text     "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "preferences", ["owner_id", "owner_type", "name", "group_id", "group_type"], :name => "ix_prefs_on_owner_attr_pref", :unique => true
 
   create_table "product_groups", :force => true do |t|
     t.string "name"
     t.string "permalink"
     t.string "order"
   end
+
+  add_index "product_groups", ["name"], :name => "index_product_groups_on_name"
+  add_index "product_groups", ["permalink"], :name => "index_product_groups_on_permalink"
 
   create_table "product_groups_products", :id => false, :force => true do |t|
     t.integer "product_id"
@@ -319,11 +349,16 @@ ActiveRecord::Schema.define(:version => 20120126163727) do
     t.datetime "updated_at"
   end
 
+  add_index "product_properties", ["product_id"], :name => "index_product_properties_on_product_id"
+
   create_table "product_scopes", :force => true do |t|
     t.integer "product_group_id"
     t.string  "name"
     t.text    "arguments"
   end
+
+  add_index "product_scopes", ["name"], :name => "index_product_scopes_on_name"
+  add_index "product_scopes", ["product_group_id"], :name => "index_product_scopes_on_product_group_id"
 
   create_table "products", :force => true do |t|
     t.string   "name",                 :default => "", :null => false
@@ -341,15 +376,26 @@ ActiveRecord::Schema.define(:version => 20120126163727) do
     t.integer  "vendor_id",            :default => 1
   end
 
+  add_index "products", ["available_on"], :name => "index_products_on_available_on"
+  add_index "products", ["deleted_at"], :name => "index_products_on_deleted_at"
+  add_index "products", ["name"], :name => "index_products_on_name"
+  add_index "products", ["permalink"], :name => "index_products_on_permalink"
+
   create_table "products_promotion_rules", :id => false, :force => true do |t|
     t.integer "product_id"
     t.integer "promotion_rule_id"
   end
 
+  add_index "products_promotion_rules", ["product_id"], :name => "index_products_promotion_rules_on_product_id"
+  add_index "products_promotion_rules", ["promotion_rule_id"], :name => "index_products_promotion_rules_on_promotion_rule_id"
+
   create_table "products_taxons", :id => false, :force => true do |t|
     t.integer "product_id"
     t.integer "taxon_id"
   end
+
+  add_index "products_taxons", ["product_id"], :name => "index_products_taxons_on_product_id"
+  add_index "products_taxons", ["taxon_id"], :name => "index_products_taxons_on_taxon_id"
 
   create_table "promotion_action_line_items", :force => true do |t|
     t.integer "promotion_action_id"
@@ -372,10 +418,16 @@ ActiveRecord::Schema.define(:version => 20120126163727) do
     t.string   "type"
   end
 
+  add_index "promotion_rules", ["product_group_id"], :name => "index_promotion_rules_on_product_group_id"
+  add_index "promotion_rules", ["user_id"], :name => "index_promotion_rules_on_user_id"
+
   create_table "promotion_rules_users", :id => false, :force => true do |t|
     t.integer "user_id"
     t.integer "promotion_rule_id"
   end
+
+  add_index "promotion_rules_users", ["promotion_rule_id"], :name => "index_promotion_rules_users_on_promotion_rule_id"
+  add_index "promotion_rules_users", ["user_id"], :name => "index_promotion_rules_users_on_user_id"
 
   create_table "properties", :force => true do |t|
     t.string   "name"
@@ -414,6 +466,9 @@ ActiveRecord::Schema.define(:version => 20120126163727) do
     t.integer "user_id"
   end
 
+  add_index "roles_users", ["role_id"], :name => "index_roles_users_on_role_id"
+  add_index "roles_users", ["user_id"], :name => "index_roles_users_on_user_id"
+
   create_table "shipments", :force => true do |t|
     t.integer  "order_id"
     t.integer  "shipping_method_id"
@@ -426,6 +481,8 @@ ActiveRecord::Schema.define(:version => 20120126163727) do
     t.integer  "address_id"
     t.string   "state"
   end
+
+  add_index "shipments", ["number"], :name => "index_shipments_on_number"
 
   create_table "shipping_categories", :force => true do |t|
     t.string   "name"
@@ -497,6 +554,10 @@ ActiveRecord::Schema.define(:version => 20120126163727) do
     t.text     "description"
   end
 
+  add_index "taxons", ["parent_id"], :name => "index_taxons_on_parent_id"
+  add_index "taxons", ["permalink"], :name => "index_taxons_on_permalink"
+  add_index "taxons", ["taxonomy_id"], :name => "index_taxons_on_taxonomy_id"
+
   create_table "tokenized_permissions", :force => true do |t|
     t.integer  "permissable_id"
     t.string   "permissable_type"
@@ -504,6 +565,8 @@ ActiveRecord::Schema.define(:version => 20120126163727) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "tokenized_permissions", ["permissable_id", "permissable_type"], :name => "index_tokenized_name_and_type"
 
   create_table "trackers", :force => true do |t|
     t.string   "environment"
@@ -542,6 +605,8 @@ ActiveRecord::Schema.define(:version => 20120126163727) do
     t.integer  "cliente_id"
   end
 
+  add_index "users", ["persistence_token"], :name => "index_users_on_persistence_token"
+
   create_table "variants", :force => true do |t|
     t.integer  "product_id"
     t.string   "sku",                                         :default => "",    :null => false
@@ -556,6 +621,8 @@ ActiveRecord::Schema.define(:version => 20120126163727) do
     t.decimal  "cost_price",    :precision => 8, :scale => 2
     t.integer  "position"
   end
+
+  add_index "variants", ["product_id"], :name => "index_variants_on_product_id"
 
   create_table "vendors", :force => true do |t|
     t.string   "nombre",       :limit => 45

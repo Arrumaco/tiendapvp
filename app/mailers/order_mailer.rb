@@ -31,4 +31,13 @@ class OrderMailer < ActionMailer::Base
     mail(:to => vendor.email, :subject => subject)
   end
 
+  def confirmacion_registro_usuario_email(cliente, email, resend=false)
+    @cliente = cliente
+    @email = email
+    subject = (resend ? "[#{t(:resend).upcase}] " : "")
+    subject += "#{Spree::Config[:site_name]} #{t('Confirmacion de Registro')} "
+    mail(:to => email, :subject => subject)
+  end
+
 end
+

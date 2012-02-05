@@ -19,7 +19,8 @@ Order.class_eval do
     InventoryUnit.assign_opening_inventory(self)
     # lock any optional adjustments (coupon promotions, etc.)
     adjustments.optional.each { |adjustment| adjustment.update_attribute("locked", true) }
-    envia_correos_notific
+	
+    envia_correos_notific # Envío de correos...
 
     self.state_events.create({
       :previous_state => "cart",
