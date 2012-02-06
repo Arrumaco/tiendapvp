@@ -6,5 +6,5 @@
 Institución<%= @cliente.nombre %> <br />
 =========================================================== <br />
 
-<p>Por favor, vaya al vínculo para completar su registro <%= link_to "Completar Registro",registra_usuario_url("#{@cliente.id}C#{@cliente.user_id}", "@email") %></p>
+<p>Por favor, vaya al vínculo para completar su registro <%= link_to "Completar Registro",registra_usuario_url("#{@cliente.id}C#{@cliente.user_id}","#{@email}") %></p>
 

@@ -16,7 +16,7 @@ TiendaPVP::Application.routes.draw do
   
   match 'registro_correo/:id/confirma_usuario' => 'registro_correo#confirma_usuario', :as => 'confirma_usuario'
   match 'registro_correo/:id/confirma_usuario_2' => 'registro_correo#confirma_usuario_2', :as => 'confirma_usuario_2'
-  match 'registro_correo/:id/regsitra_usuario/:email' => 'registro_correo#regsitra_usuario', :as => 'registra_usuario'
+  match 'registro_correo/:id/*email/registra_usuario' => 'registro_correo#registra_usuario', :as => 'registra_usuario'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

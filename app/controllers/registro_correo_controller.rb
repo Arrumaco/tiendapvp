@@ -27,4 +27,8 @@ class RegistroCorreoController < ApplicationController
       end
     end
   end
+
+  def registra_usuario
+
+  end
 end
