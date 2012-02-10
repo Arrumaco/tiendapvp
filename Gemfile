@@ -44,7 +44,10 @@ end
 # SPREE
 #
 #######
+gem 'aws-s3'
 gem 'spree', '0.70.1'
+gem 'spree_heroku'
+
 #-----
 # Traducciones
 #-----

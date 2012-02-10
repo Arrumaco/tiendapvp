@@ -24,3 +24,6 @@ Spree::Config.set(:logo => 'admin/LogoPVP3.png')
 Spree::Config.set(:admin_interface_logo => 'admin/LogoPVP3.png')
 Spree::Config.set(:stylesheets => 'screen,spree_blue_theme')
 Spree::Config.set(:allow_ssl_in_production => false)
+
+# Manejo de Image Magic
+#Paperclip.options[:command_path] = "C:\Archivos de programa\ImageMagick-6.7.2-Q8"
