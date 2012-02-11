@@ -1,0 +1,12 @@
+development:
+  bucket: tiendapvp_development
+  access_key_id: AKIAI2DOGNDUSY7IPL2Q
+  secret_access_key: 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
+test:
+  bucket: tiendapvp_development
+  access_key_id: AKIAI2DOGNDUSY7IPL2Q
+  secret_access_key: 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
+production:
+  bucket: tiendapvp_development
+  access_key_id: AKIAI2DOGNDUSY7IPL2Q
+  secret_access_key: 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

@@ -51,6 +51,10 @@ GEM
     acts_as_list (0.1.4)
     ansi (1.4.1)
     arel (2.2.1)
+    aws-s3 (0.6.2)
+      builder
+      mime-types
+      xml-simple
     bcrypt-ruby (3.0.1-x86-mingw32)
     braintree (2.13.1)
       builder (>= 2.0.0)
@@ -184,6 +188,7 @@ GEM
       stringex (= 1.0.3)
     spree_dash (0.70.1)
       spree_core (= 0.70.1)
+    spree_heroku (0.0.2)
     spree_promo (0.70.1)
       spree_auth (= 0.70.1)
       spree_core (= 0.70.1)
@@ -210,11 +215,13 @@ GEM
       multi_json (>= 1.0.2)
     warden (1.0.6)
       rack (>= 1.0)
+    xml-simple (1.1.1)
 
 PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  aws-s3
   coffee-rails (~> 3.1.1)
   jquery-rails
   mongrel (= 1.2.0.pre2)
@@ -227,6 +234,7 @@ DEPENDENCIES
   sass-rails (~> 3.1.4)
   spree (= 0.70.1)
   spree_blue_theme!
+  spree_heroku
   spree_i18n!
   spree_variant_options (~> 0.3.0)
   turn

@@ -4,6 +4,7 @@ gem 'rails', '3.1.1'
 
 gem 'jquery-rails'
 
+
 gem 'mongrel', '1.2.0.pre2'
 ## Pasandonos a thin (recomendado por heroku)
 #gem 'thin'
@@ -25,7 +26,7 @@ end
 
 group :development, :test do
   # BD para desarrollo
-  gem 'pg'
+  gem 'sqlite3'
   # Pretty printed test output
   gem 'turn', :require => false
   # To use debugger
@@ -43,9 +44,10 @@ end
 # SPREE
 #
 #######
+gem 'aws-s3'
 gem 'spree', '0.70.1'
-# Para trabajar con el filesystem de amazon porque heroku no lo tiene
-gem 'spree_heroku', :git => 'git://github.com/joneslee85/spree-heroku.git'
+gem 'spree_heroku'
+
 #-----
 # Traducciones
 #-----
