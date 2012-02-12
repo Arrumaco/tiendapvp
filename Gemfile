@@ -26,7 +26,7 @@ end
 
 group :development, :test do
   # BD para desarrollo
-  gem 'sqlite3'
+  gem 'pg'
   # Pretty printed test output
   gem 'turn', :require => false
   # To use debugger

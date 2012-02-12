@@ -1,12 +1,12 @@
 development:
-  bucket: tiendapvp_development
-  access_key_id: AKIAI2DOGNDUSY7IPL2Q
-  secret_access_key: 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
+  bucket: TPVPDesa
+  access_key_id: AKIAIV3BHRRG6ZYIELWQ
+  secret_access_key: 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
 test:
-  bucket: tiendapvp_development
-  access_key_id: AKIAI2DOGNDUSY7IPL2Q
-  secret_access_key: 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
+  bucket: TiendaPVP
+  access_key_id: AKIAIV3BHRRG6ZYIELWQ
+  secret_access_key: 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
 production:
-  bucket: tiendapvp_development
-  access_key_id: AKIAI2DOGNDUSY7IPL2Q
-  secret_access_key: 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
+  bucket: TiendaPVP
+  access_key_id: AKIAIV3BHRRG6ZYIELWQ
+  secret_access_key: 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
