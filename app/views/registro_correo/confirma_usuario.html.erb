@@ -8,6 +8,11 @@
 <div data-hook="confirma_usuario_form">
   <%= form_tag("/registro_correo/#{@cliente.id}C#{@cliente.user_id}/confirma_usuario_2", :method => 'put') do %>
     <%= render :partial => 'form_confirma' %>
+
+    <br class="clear" />   
+    <br class="clear" />   
+    <br class="clear" /> 
+
     <div data-hook="confirma_usuario_form_button">
       <p><%= submit_tag t(:continue), :class => 'button primary' %></p>
     </div>

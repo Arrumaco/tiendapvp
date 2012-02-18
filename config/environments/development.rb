@@ -27,6 +27,7 @@ TiendaPVP::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
   # Manejo de Image Magic
-  Paperclip.options[:command_path] = "C:\Program Files\ImageMagick-6.7.3-Q8"
+  #Paperclip.options[:command_path] = "C:\SDK\ImageMagick-6.7.2-Q8"
 end

@@ -4,16 +4,16 @@
     <%= render 'shared/head' %>
   </head>
   <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body">
-  <% if user_signed_in? %>
     <div id="header" data-hook>
+      <% if user_signed_in? %>
       <ul id="nav-bar" data-hook>
         <%= render 'shared/nav_bar' %>
       </ul>
+     <% end %>
       <div id="logo" data-hook>
         <%= logo %>
       </div>
     </div>
-   <% end %>
 
     <div id="wrapper" data-hook>
       <% if content_for?(:sidebar) %>

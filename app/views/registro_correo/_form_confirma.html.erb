@@ -2,6 +2,9 @@
   <div class="left" data-hook="confirma_usuario_form_left">
       <%= label_tag :correo_electronico, t(:correo_electronico) %> <span class="required">*</span><br />
       <%= email_field_tag :email, nil, :class => 'fullwidth title'  %><br /> 
+
+      <br class="clear" /> 
+
       <%= label_tag :organizacion, t(:organizacion) %><br />
       <%= @cliente.nombre %>
   </div>
