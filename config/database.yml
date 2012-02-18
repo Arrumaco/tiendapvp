@@ -27,7 +27,9 @@ test:
   timeout: 10000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 5
-  timeout: 10000
+   adapter: postgresql
+   encoding: unicode  
+   database: tiendapvp_development
+   pool: 5  
+   username: TiendaPVP
+   password: agualinda
