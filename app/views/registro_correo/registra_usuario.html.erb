@@ -1,3 +1,19 @@
-<div data-hook="actualiza_deposito_form_header">
-  <h1><%= t(:estamos_procesando_su_pago ) %> </h1>
-</div>
+<%= render 'shared/error_messages', :target => @user %>
+
+<h1><%= t(:editing_user) %></h1>
+  <p>El registro es en dos pasos: <br/>
+  En este segundo paso crearemos su cuenta en TiendaPVP...
+  </p>
+
+<%= form_for :user, :url => "/registro_correo/#{@cliente.id}C#{@cliente.user_id}/#{@user.email}/registra_usuario_2", :html => { :method => :post } do |f| %>
+  <%= render 'registra_usuario_form', :f => f %>
+  
+  <br class="clear" />   
+  <br class="clear" />   
+  <br class="clear" />   
+
+  <p class="form-buttons" data-hook="buttons">
+    <%= button t(:update) %>
+  </p>
+<% end %>
+

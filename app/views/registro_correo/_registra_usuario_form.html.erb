@@ -1,0 +1,23 @@
+  <%= f.field_container :email do %>
+    <%= f.label :email, t(:email) %><br />
+    <%= f.text_field :email, :readonly => 'readonly' %>
+    <%= error_message_on :user, :email %>
+  <% end %>
+
+  <%= f.field_container :password do %>
+    <%= f.label :password, t(:password) %><br />
+    <%= f.password_field :password  %>
+    <%= f.error_message_on :password %>
+  <% end %>
+
+  <%= f.field_container :password do %>
+    <%= f.label :password_confirmation, t(:confirm_password) %><br />
+    <%= f.password_field :password_confirmation  %>
+    <%= f.error_message_on :password_confirmation %>
+  <% end %>
+
+  <%= f.hidden_field :cliente_id %>
+  <%= @cliente.nombre %>
+</div>
+
+
