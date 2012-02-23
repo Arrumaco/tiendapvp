@@ -1,10 +1,10 @@
-<p>Estimado Usuario, </p>
+<p>Estimado Usuario(a), </p>
  
 <p>Por favor revise y siga el enlace de más abajo para terminar su registro. </p>
 
 =========================================================== <br />
-Institución<%= @cliente.nombre %> <br />
+Institución Asociada <%= @cliente.nombre %> <br />
 =========================================================== <br />
 
-<p>Por favor, vaya al vínculo para completar su registro <%= link_to "Completar Registro",registra_usuario_url("#{@cliente.id}C#{@cliente.user_id}","#{@email}") %></p>
+<p>Haga click al siguiente vínculo para completar su registro <%= link_to "Completar Registro",registra_usuario_url("#{@cliente.id}C#{@cliente.user_id}","#{@email}") %></p>
 
