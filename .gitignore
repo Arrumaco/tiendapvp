@@ -8,5 +8,4 @@ SQL/
 *.cdr
 *.svn*
 .svn
-public/assets
 config/aws_s3.yml

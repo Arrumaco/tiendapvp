@@ -2,7 +2,7 @@
   <% if current_user %>
     <%= t(:logged_in_as) %> <%=  current_user.email %>
   <%  else %>
-    <%= logo %>
+    <!--  logo -->
     <%= link_to t(:log_in), login_path %>
   <% end %>
 </div>
