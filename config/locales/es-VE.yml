@@ -39,7 +39,7 @@ es-VE:
           firstname: "Dirección de factura, nombre"
           lastname: "Dirección de factura, apellidos"
           phone: "Dirección de factura, teléfono"
-          state: "Dirección de factura, provincia"
+          state: "Dirección de factura, Estado"
           zipcode: "Dirección de factura, código postal"
         ship_address:
           address1: "Dirección de envío, calle"
@@ -47,7 +47,7 @@ es-VE:
           firstname: "Dirección de envío, nombre"
           lastname: "Dirección de envío, apellidos"
           phone: "Dirección de envío, teléfono"
-          state: "Dirección de envío, provincia"
+          state: "Dirección de envío, Estado"
           zipcode: "Dirección de envío, código postal"
       country:
         iso: ISO
@@ -62,7 +62,7 @@ es-VE:
         verification_value: "Código de verificación"
         year: Año
       inventory_unit:
-        state: Provincia
+        state: Estado
       line_item:
         price: Precio
         quantity: Cantidad
@@ -231,7 +231,7 @@ es-VE:
   add_product_properties: "Añadir propiedades de producto"
   add_rule_of_type: Añadir regla de tipo
   add_scope: "Añadir alcance"
-  add_state: "Añadir provincia"
+  add_state: "Añadir Estado"
   add_to_cart: "Añadir al carrito"
   add_zone: "Añadir zona"
   additional_item: Costo adicional por elemento
@@ -241,6 +241,10 @@ es-VE:
   adjustment_total: Ajuste total
   adjustments: Ajustes
   administration: Administración
+  admin:
+    mail_methods:
+      testmail:
+        delivery_success: "Mensaje de prueba enviado satisfactoriamente"
   all: "Todos"
   all_departments: Todos los departamentos
   allow_backorders: "Permitir devoluciones"
@@ -315,7 +319,7 @@ es-VE:
   charge_total: Total cargo
   charged: Cargado
   charges: Cargos
-  checkout: Pagar
+  checkout: Realizar Pedido
   cheque: Cheque
   city: Ciudad
   cliente_updated: "Cliente actualizado"
@@ -389,7 +393,7 @@ es-VE:
   editing_prototype: "Editando Prototipo"
   editing_shipping_category: "Editando Categoria de envío"
   editing_shipping_method: "Editando metodo de envío"
-  editing_state: "Editando provincia"
+  editing_state: "Editando Estado"
   editing_tax_category: "Editando Categoría fiscal"
   editing_tax_rate: "Editando tasa de impuestos"
   editing_tracker: Editando Tracker
@@ -568,7 +572,7 @@ es-VE:
   new_shipment: "Nuevo envio"
   new_shipping_category: "Nueva categoría de envío"
   new_shipping_method: "Nueva forma de envío"
-  new_state: "Nueva provincia"
+  new_state: "Nueva Estado"
   new_tax_category: "Nueva categoría"
   new_tax_rate: "Nuevo tipo impositivo"
   new_taxon: "Nueva Categoría"
@@ -989,10 +993,10 @@ es-VE:
   ssl_will_not_be_used_in_production_mode: "No se utilizará SSL en modo producción"
   start: Inicio
   start_date: Válido desde
-  state: Provincia
-  state_based: "Provincia"
-  state_setting_description: "Administrar la lista de estados o provincias asociados con cada país."
-  states: Provincias
+  state: Estado
+  state_based: "Estado"
+  state_setting_description: "Administrar la lista de estados o Estados asociados con cada país."
+  states: Estados
   status: Estado
   stop: Hasta
   store: Tienda
@@ -1024,6 +1028,9 @@ es-VE:
   taxons: Categorías
   test: "Test"
   test_mode: Modo Prueba
+  test_mailer:
+    test_email:
+      greeting: "El mensaje de prueba de la cuenta de correo se generó satisfactoriamente"
   thank_you_for_your_order: "Gracias por su pedido"
   there_were_problems_with_the_following_fields: "Han habido problemas con los siguientes campos: "
   this_file_language: "Español"

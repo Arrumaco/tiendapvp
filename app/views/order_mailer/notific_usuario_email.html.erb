@@ -1,22 +1,30 @@
-<p>Dear Customer, </p>
- 
-<p>Please review and retain the following order information for your records. </p>
+<h1>REGISTRO DE COMPRA EFECTUADA A TIENDAPVP</h1>
 
 =========================================================== <br />
-Orden Número <%= @order.number %> <br />
-Order Summary<br />
-=========================================================== <br />
+Pedido Número <%= @order.number %> <br />
+<b>Resumen</b><br />
+================= ARTICULOS SOLICITADOS ================== <br />
 <% for item in @order.line_items %>
-<%=item.variant.sku %> <%=item.variant.product.name%> <%= item.variant.options_text -%> (<%=item.quantity%>) @ <%= number_to_currency item.price %> = <%= number_to_currency(item.price * item.quantity) %> <br />
+  <%=item.variant.sku %> <%=item.variant.product.name%> <%= item.variant.options_text -%> (<%=item.quantity%>) @ <%= number_to_currency item.price %> = <%= number_to_currency(item.price * item.quantity) %> <br />
 <% end %>
-=========================================================== <br />
+===================== FIN DE LA LISTA ===================== <br />
 <p>Subtotal: <%= number_to_currency @order.item_total %> <br />
-<% @order.adjustments.each do |adjustment| %>
-<%= "#{adjustment.label}: #{number_to_currency adjustment.amount}"%> <br />
-<% end %>
-Order Total: <%= number_to_currency @order.total %> </p>
+   <% @order.adjustments.each do |adjustment| %>
+     <%= "#{adjustment.label}: #{number_to_currency adjustment.amount}"%> <br />
+   <% end %>
+   <br />
+   ---------------------------------------------
+   <h3>Total del Pedido: <%= number_to_currency @order.total %></h3> 
+</p>
 
-<p>Su orden está siendo procesada... </p>
-
-
-Gracias por su compra!!!!
+<p>Con esta notificación, le confirmamos que recibimos su pedido y que comienza el proceso de preparación
+   que incluye la verificación de existencias y logística de envío
+</p>
+<br />
+<p><b>
+En breve le enviaremos una nueva notificación confirmando los árticulos, cantidades e instrucciones de entrega y pago de los articulos
+</b>
+<p>En cualquier momento puede revisar la situación de su pedído haciendo click aquí: <%= link_to "Mi cuenta",account_url %></p>
+	
+</p>
+Muchas Gracias por su pedido
