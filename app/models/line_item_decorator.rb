@@ -1,5 +1,7 @@
 LineItem.class_eval do
 
+  attr_accessible :despacho_confirmado, :fecha_despacho_confirmado
+
 private
     def update_inventory
       # return true unless self.order.completed?  Ajustado para incluir la actualizacion cantidad_original...

@@ -4,7 +4,7 @@ class OrderMailer < ActionMailer::Base
   def notific_usuario_email(order, resend=false)
     @order = order
     subject = (resend ? "[#{t(:resend).upcase}] " : "")
-    subject += "#{Spree::Config[:site_name]} #{t('order_mailer.confirm_email.subject')} ##{order.number}"
+    subject += "#{Spree::Config[:site_name]} #{t('order_mailer.notify_email.subject')} ##{order.number}"
     mail(:to => order.email, :subject => subject)
   end
 
@@ -24,7 +24,15 @@ class OrderMailer < ActionMailer::Base
   end
 
   def notific_vendor_email(orden,lineas, vendor, resend=false)
-    @orden = orden
+    @order = orden
+    @lineas = lineas
+    subject = (resend ? "[#{t(:resend).upcase}] " : "")
+    subject += "#{Spree::Config[:site_name]} #{t('order_mailer.notify_email.subject')}  para la orden #{orden.number}"
+    mail(:to => vendor.email, :subject => subject)
+  end
+
+  def confirm_vendor_email(orden,lineas, vendor, resend=false)
+    @order = orden
     @lineas = lineas
     subject = (resend ? "[#{t(:resend).upcase}] " : "")
     subject += "#{Spree::Config[:site_name]} #{t('order_mailer.confirm_email.subject')}  para la orden #{orden.number}"

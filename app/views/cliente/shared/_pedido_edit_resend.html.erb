@@ -1,1 +1,18 @@
-<%= button_link_to t(:resend), "/#{session[:rol_usuario]}/orders/#{@order.number}/resend", :method => :post, :icon => 'send-email' if @order.user %>
+<%= form_tag("/#{session[:rol_usuario]}/orders/#{@order.number}/resend", :method => :post) do %>
+  <div "margin-bottom: 0px; margin-top: 0px;">
+    <div style="float: left;margin-bottom: 0px; margin-top: 0px;">
+      <p style="margin-bottom: 0px; margin-top: 0px; line-height: 80%; font-size: 80%; text-align: right; ">
+        Usuario: Notif.: <%= check_box_tag :usuario_mensaje_notificacion %>
+        Conf..: <%= check_box_tag :usuario_mensaje_confirmacion %>
+        <br /> 
+        Proveedor: Notif.: <%= check_box_tag :vendor_mensaje_notificacion %>
+        Conf..: <%= check_box_tag :vendor_mensaje_confirmacion %>  
+        </p>
+    </div>
+
+    <div style="float: left;margin-bottom: 0px; margin-top: 0px;">
+      <%= button(t(:resend), 'send-email') %>
+    </div>
+  </div>
+
+<% end %>

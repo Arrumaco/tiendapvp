@@ -32,7 +32,7 @@ Order.class_eval do
 
   def envia_correos_notific
     OrderMailer.notific_usuario_email(self).deliver
-     a = {} #Hash con una entrada por proveedor.  Cada elemento del hash es un arreglo de line_items...
+    a = {} #Hash con una entrada por proveedor.  Cada elemento del hash es un arreglo de line_items...
     self.line_items.each do |linea|
       variante = Variant.find(linea.variant_id)
       producto = Product.find(variante.product_id)

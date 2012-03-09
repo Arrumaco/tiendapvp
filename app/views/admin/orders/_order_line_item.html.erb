@@ -4,11 +4,7 @@
   </td>
   <td valign="top" class="price"><%= number_to_currency f.object.price %></td>
   <td valign="top" class="qty">
-    <%= check_box_tag "order[#{dom_id(f.object) }]",
-                         true,
-                         false,
-                         {:disabled => false} %> 
-
+     <%= f.check_box :despacho_confirmado %> 
      <%= f.text_field :quantity, :style => "width:30px;", :class => "qty" %>
   </td>
   <td valign="top" class="total"><%= number_to_currency (f.object.price * f.object.quantity) %></td>
