@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120204125012) do
+ActiveRecord::Schema.define(:version => 20120327022706) do
 
   create_table "activators", :force => true do |t|
     t.string   "description"
@@ -295,14 +295,14 @@ ActiveRecord::Schema.define(:version => 20120204125012) do
     t.integer  "order_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "amount",                                          :default => 0.0, :null => false
+    t.decimal  "amount",                          :default => 0.0, :null => false
     t.integer  "source_id"
     t.string   "source_type"
     t.integer  "payment_method_id"
     t.string   "state"
     t.string   "response_code"
     t.string   "avs_response"
-    t.decimal  "deposito_numero",   :precision => 8, :scale => 2
+    t.string   "deposito_numero",   :limit => 20
     t.date     "deposito_fecha"
   end
 

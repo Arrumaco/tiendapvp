@@ -28,13 +28,17 @@ class Ability
       if request.fullpath.include? "/vendor"
         can :manage, :all
       end
-    elsif user.has_role? 'cliente'
+    end
+    if user.has_role? 'cliente'
       if request.fullpath.include? "/cliente"
         can :manage, :all
       end
-    elsif user.has_role? 'admin'
+    end
+    if user.has_role? 'admin'
       can :manage, :all
-    elsif user.has_role? 'user'
+    end
+
+    if user.has_role? 'user'
       #############################
       can :read, User do |resource|
         resource == user
@@ -87,6 +91,10 @@ class Ability
       can :read, Taxon
       can :index, Taxon
       #############################
+    end
+
+    if user.has_role? 'cliente' || user.has_role? 'vendor' 
+      cannot :edit, Order
     end
 
     #include any abilities registered by extensions, etc.
