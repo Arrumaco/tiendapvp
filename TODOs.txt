@@ -8,6 +8,7 @@ LISTO: Portal cliente: filtrado por cliente de users
 LISTO: Portal Proveedeores: filtrado por proveedor productos y pedidos ***LISTO prod, pedidos es absurdo***
 LISTO: Manejo de correos en checkout
 200309: Edit pedidos->revisar resend correo...  En ADMIN!!
+120326: Edit pedidos->revisar resend correo...  En CLINTE!!(??)
 
 
 =================================================================================================================
@@ -19,5 +20,5 @@ TODO: Nuevo Usuarios con Cliente solo debe permitir funciones user/cliente
 TODO: El registro del depósito debe pedir login y verificar el usuario/pedido/pago
 TODO: La actualización del depósito debe verificar usuario/pedido/pago
 TODO: Portal cliente: filtrado por cliente de pedidos 
-TODO: Edit pedidos->revisar resend correo...  En CLINTE!!(??)
+
 

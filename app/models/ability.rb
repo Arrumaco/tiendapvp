@@ -93,7 +93,7 @@ class Ability
       #############################
     end
 
-    if user.has_role? 'cliente' || user.has_role? 'vendor' 
+    if user.has_role?('cliente') || user.has_role?('vendor')
       cannot :edit, Order
     end
 
